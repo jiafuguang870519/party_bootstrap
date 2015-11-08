@@ -1,0 +1,2 @@
+$('#file tr:last').after("<%= j render('oa/sent_documents/file', :the_file=>@the_file,:index=>@index,:oa_sent_document=>@oa_sent_document) %>");
+$('#<%= dynamic_hidden_count_name( @oa_sent_document, 0, 'file') %>').val('<%= @index + 1%>');

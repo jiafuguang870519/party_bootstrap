@@ -1,0 +1,24 @@
+<div class="ibox-content">
+  <div class="file-manager">
+    <%= button_div do %>
+        <%= bs_button_window(new_fdn_role_path(org_id: org_id), '创建', 'btn-primary btn-sm', 'fa fa-check') %>
+    <% end %>
+    <div class="ibox-content">
+      <%= table([{w: 1, t: '角色名称'}, {w: 1, t: '代码'}, {w: 3, t: '操作'}], obj: roles) do |role| %>
+          <%= table_tr(
+                      {c: seq(roles, role, params[:page]||1)},
+                      {l: role.name},
+                      {c: role.code},
+                      {c: action_links([
+                             {value: '查看', url: fdn_role_path(role)},
+                             {value: '编辑', url: edit_fdn_role_path(role)},
+                             {value: '用户', url: user_fdn_role_path(role, :organization_id => role.organization_id)},
+                             {value: '权限', url: right_fdn_role_path(role, :organization_id => role.organization_id)},
+                             #{value: '删除', url: fdn_role_path(role), url_method: 'delete', :confirm => "确定删除吗？"}
+                             {value: '删除', url: destroy_record_fdn_role_path(role),params:"'org_id': '#{role.organization.id}'", url_method: 'confirm', :confirm => "确定删除吗？",tips:"角色已删除！"}
+                      ])}
+              ) %>
+      <% end %>
+    </div>
+  </div>
+</div>

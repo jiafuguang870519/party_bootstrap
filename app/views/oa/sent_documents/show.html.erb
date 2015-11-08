@@ -1,0 +1,57 @@
+<%= button_div() do %>
+    <%= bs_close %>
+<% end %>
+<div class="ibox-content">
+  <%= form_show(@oa_sent_document) do |u| %>
+      <%= u.row("1:1") do %>
+          <%= u.show_method '公文字：', :doc_word_code %>
+          <%= u.show_method '公文年号：', :year %>
+      <% end %>
+
+      <%= u.row("1:1") do %>
+          <%= u.show_content '文件密级：' do %>
+              <%= @oa_sent_document.secret_level.value if @oa_sent_document.secret_level_code %>
+          <% end %>
+          <%= u.show_content '文件缓急：' do %>
+              <%= @oa_sent_document.doc_urgency.value if @oa_sent_document.doc_urgency_code %>
+          <% end %>
+      <% end %>
+      <%= u.row("1:1") do %>
+          <%= u.show_content '文件类型：' do %>
+              <%= @oa_sent_document.doc_type.value if @oa_sent_document.doc_type_code %>
+          <% end %>
+          <%= u.show_method '份数：', :print_count %>
+      <% end %>
+      <%= u.row('1') do %>
+          <%= u.show_method '主送部门：', :pri_sent_org_name %>
+      <% end %>
+      <%= u.row('1') do %>
+          <%= u.show_method '抄送部门：', :cc_sent_org_name %>
+      <% end %>
+      <%= u.row('1') do %>
+          <%= u.show_method '抄报单位：', :ccr_sent_org_name %>
+      <% end %>
+      <%= u.row('1') do %>
+          <%= u.show_method '主题：', :title %>
+      <% end %>
+      <%= u.row('1') do %>
+          <%= u.show_content '正文：' do %>
+              <%= @oa_sent_document.content.html_safe if @oa_sent_document.content %>
+          <% end %>
+      <% end %>
+      <%= u.row('1') do %>
+          <%= u.show_content '备注：' do %>
+              <%= @oa_sent_document.memo.html_safe if @oa_sent_document.memo %>
+          <% end %>
+      <% end %>
+      <% if @oa_sent_document.file.size != 0 %>
+          <center>
+            <%= table([{w: 4, t: '序号'}, {w: 8, t: '文件'}], show_seq: false) do %>
+                <% @oa_sent_document.file_resources.each do |file| %>
+                    <%= table_tr({r: @oa_sent_document.file.index(file)+1}, {l: (file.id != nil && file.ffx_file_size && file.ffx_file_size >= 0) ? link_to(file.ffx_file_name, file.ffx.url) : '空'}) %>
+                <% end %>
+            <% end %>
+          </center>
+      <% end %>
+  <% end %>
+</div>

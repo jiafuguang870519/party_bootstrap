@@ -1,0 +1,59 @@
+<div class="ibox-content">
+<%= f.fields_for :organization do |org_form| %>
+    <%= f.row("1:1") do %>
+        <%= f.controls("企业名称：") do %>
+            <%= org_form.text_field :name, :class=> 'form-control required' %>
+        <% end %>
+        <%= f.controls("企业简称：") do %>
+            <%= org_form.text_field :short_name, :class=> 'form-control required' %>
+        <% end %>
+    <% end %>
+<% end %>
+<%#= f.row("1:1") do %>
+    <%#= f.control('select','企业级次：', :ent_level_code, Fdn::Lookups::EntLevel.select_y,{:prompt=>'请选择'} ,:class=>"required")%>
+    <%#= f.control 'text', '企业级次：', :ent_level_code , :class=> 'required' %>
+    <%#= f.control 'text', '组织机构代码：', :ent_code , :class=> 'required' %>
+<%# end %>
+<%#s= f.row("1:1") do %>
+    <%#= f.control('autocomplete', '产权上级单位：', :cq_parent_name, 'data-source'=>"orgs", 'data-mapping'=>'{"value": "cq_parent_id"}',:value=>(organization.with_hierarchy(1).parent.name if organization.with_hierarchy(1).parent)) %>
+    <%#= f.controls('产权上级单位：') do %>
+        <%#= text_field_tag 'cq_parent_id' ,(organization.with_hierarchy(1).parent.id if organization.with_hierarchy(1).parent) ,:class=>"form-control #{organization.can_delete?(1)}" ,:readonly=>true %>
+    <%# end %>
+<%# end %>
+<%#= f.row("1:1") do %>
+    <%#= f.control('autocomplete', '快报上级单位：', :kb_parent_name, 'data-source'=>"orgs", 'data-mapping'=>'{"value": "kb_parent_id"}',:value=>(organization.with_hierarchy(2).parent.name if organization.with_hierarchy(2).parent)) %>
+    <%#= f.controls('快报上级单位：') do %>
+        <%#= text_field_tag 'kb_parent_id' ,(organization.with_hierarchy(2).parent.id if organization.with_hierarchy(2).parent),:class=>"form-control #{organization.can_delete?(2)}" ,:readonly=>true %>
+    <%# end %>
+<%# end %>
+<%#= f.row("1:1") do %>
+    <%#= f.control('autocomplete', '预算上级单位：', :ys_parent_name, 'data-source'=>"orgs", 'data-mapping'=>'{"value": "ys_parent_id"}',:value=>(organization.with_hierarchy(3).parent.name if organization.with_hierarchy(3).parent)) %>
+    <%#= f.controls('预算上级单位：') do %>
+        <%#= text_field_tag 'ys_parent_id' ,(organization.with_hierarchy(3).parent.id if organization.with_hierarchy(3).parent),:class=>"form-control #{organization.can_delete?(3)}" ,:readonly=>true %>
+    <%# end %>
+<%# end %>
+<%#= f.row("1:1") do %>
+    <%#= f.control('autocomplete', '年报上级单位：', :nb_parent_name, 'data-source'=>"orgs", 'data-mapping'=>'{"value": "nb_parent_id"}',:value=>(organization.with_hierarchy(4).parent.name if organization.with_hierarchy(4).parent)) %>
+    <%#= f.controls('年报上级单位：') do %>
+        <%#= text_field_tag 'nb_parent_id' ,(organization.with_hierarchy(4).parent.id if organization.with_hierarchy(4).parent) ,:class=>"form-control #{organization.can_delete?(4)}" ,:readonly=>true %>
+    <%# end %>
+<%# end %>
+<%#= f.row("1:1") do %>
+    <%#= f.control('autocomplete', '决算上级单位：', :js_parent_name, 'data-source'=>"orgs", 'data-mapping'=>'{"value": "js_parent_id"}',:value=>(organization.with_hierarchy(5).parent.name if organization.with_hierarchy(5).parent)) %>
+    <%#= f.controls('决算上级单位：') do %>
+        <%#= text_field_tag 'js_parent_id' ,(organization.with_hierarchy(5).parent.id if organization.with_hierarchy(5).parent),:class=>"form-control #{organization.can_delete?(5)}" ,:readonly=>true %>
+    <%# end %>
+<%# end %>
+  <%= f.row("1:1") do %>
+      <%= f.control('autocomplete', '党组织上级单位：', :dzz_parent_name, 'data-source'=>"orgs", 'data-mapping'=>'{"value": "dzz_parent_id"}',:value=>(organization.with_hierarchy(6).parent.name if organization.with_hierarchy(6).parent)) %>
+      <%= f.controls('党组织上级单位：') do %>
+          <%= text_field_tag 'dzz_parent_id' ,(organization.with_hierarchy(6).parent.id if organization.with_hierarchy(6).parent),:class=>"form-control #{organization.can_delete?(6)}" ,:readonly=>true %>
+      <% end %>
+  <% end %>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".form-horizontal").validate();
+        jQuery.validator.addClassRules("no_delete", {required: true});
+    })
+</script>

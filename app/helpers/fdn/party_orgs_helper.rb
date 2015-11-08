@@ -1,0 +1,2 @@
+module Fdn::PartyOrgsHelper
+end

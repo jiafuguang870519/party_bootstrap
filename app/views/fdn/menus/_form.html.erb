@@ -1,0 +1,45 @@
+<%= datepicker_include_tag %>
+<%= javascript_include_tag rjs_all_of_fdn_organizations_path(columns: ['id', 'name']) %>
+<%#= (errors_for(@fdn_menu)).html_safe %>
+<%= form_for(@fdn_menu, nav: {}) do |f| %>
+    <div class="ibox-content">
+      <%= f.hidden_field :parent_id %>
+      <%= f.row('1:1') do %>
+          <%= f.control 'text', '名称：', :name, class: 'required' %>
+          <%= f.control 'text', '编码：', :code, class: 'required' %>
+          <%#= f.control 'datepicker', 'date：', :code ,class:"date actual_range"%>
+          <%#= f.control 'datepicker', 'date：', :name ,class:"date actual_range"%>
+      <% end %>
+      <%= f.row('1:1') do %>
+          <%= f.control 'text', '说明：', :description %>
+          <%= f.control 'text', '图标：', :title_img %>
+      <% end %>
+      <%= f.row('1:1') do %>
+          <!--自动完成-->
+          <%#= f.control('autocomplete', '上级菜单：', :parent_name, 'data-source'=>"orgs", 'data-mapping'=>'{"value": "fdn_menu_parent_id"}') %>
+          <!--select单选 TODO 如果能变成模糊查询 就完美了-->
+          <%= f.control('select', '上级菜单：', :parent_id, Fdn::Menu.all.map { |o| [o.name, o.id] }, {prompt: '请选择'}, class: "chosen-select") %>
+          <!--两个多选，multiselect仍有问题，在选项少的时候第一个比较好用-->
+          <%#= f.control('select','上级菜单：', :parent_id, Fdn::Menu.all.map{|o|[o.name,o.id]},{prompt:'请选择'} ,class:"chosen-select",multiple:true)%>
+          <%#= f.control('multiselect','上级菜单：', :parent_id, choices: Fdn::Menu.all.map{|o|[o.name,o.id]})%>
+          <%= f.control 'text', '控制器：', :controller %>
+      <% end %>
+      <%= f.row('1:1') do %>
+          <%= f.control 'text', '动作：', :action %>
+          <%= f.control('radios', '状态：', :status, [%w(启用 Y), %w(禁用 N)], inline: 'inline') %>
+      <% end %>
+      <%#= button_div('bottom') do %>
+          <%#= bs_save %>
+          <%#= bs_close %>
+      <%# end %>
+    </div>
+<% end %>
+<%= select_search_include_tag %>
+<script>
+    $(document).ready(function () {
+        $('.date').datepicker({
+//            inputs: $('.actual_range'),
+            autoclose: 'true'
+        });
+    })
+</script>

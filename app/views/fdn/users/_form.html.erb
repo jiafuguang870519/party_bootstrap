@@ -1,0 +1,39 @@
+<div class="ibox-content">
+  <%= f.fields_for :user_information do |inf_form| %>
+      <%= f.row("1:1") do %>
+          <%= f.control('text', "帐号:", :username, readonly_when_edit: true) %>
+          <%= f.controls('姓名') do %>
+              <%= inf_form.text_field :full_name, class: 'form-control'%>
+          <% end %>
+      <% end %>
+      <%= f.row("1:1") do %>
+          <%= f.control('password', "密码：", :password ) %>
+          <%= f.control('password', "密码确认：", :password_confirmation ) %>
+      <% end %>
+  <% end %>
+</div>
+<script>
+    $(document).ready(function () {
+        $( ".form-horizontal" ).validate({
+            rules: {
+                "fdn_user[username]": {
+                    required: true,
+                    minlength: 2
+                },
+                "fdn_user[user_information_attributes][full_name]": {
+                    required: true,
+                    minlength: 2
+                },
+                "fdn_user[password]": {
+                    required: true,
+                    minlength: 5
+                },
+                "fdn_user[password_confirmation]": {
+                    required: true,
+                    minlength: 5,
+                    equalTo: "#fdn_user_password"
+                }
+            }
+        });
+    })
+</script>

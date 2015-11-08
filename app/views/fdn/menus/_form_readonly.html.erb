@@ -1,0 +1,30 @@
+<%== form_show(fdn_menu) do |d| %>
+    <%= d.row("1") do %>
+        <%= d.show_method "名称：", :name, label_span: 3, value_span: 8 %>
+    <% end %>
+    <%= d.row("1") do %>
+        <%= d.show_method "代码：", :code, label_span: 3, value_span: 8 %>
+    <% end %>
+    <%= d.row("1") do %>
+        <%= d.show_method "说明：", :description, label_span: 3, value_span: 8 %>
+    <% end %>
+    <%= d.row("1") do %>
+        <%= d.show_method "图标：", :title_img, label_span: 3, value_span: 8 %>
+    <% end %>
+    <%= d.row("1") do %>
+        <%= d.show_content "上级菜单：", label_span: 3, value_span: 8 do %>
+            <%= fdn_menu.parent.name if fdn_menu.parent %>
+        <% end %>
+    <% end %>
+    <%= d.row("1") do %>
+        <%= d.show_method "控制器：", :controller, label_span: 3, value_span: 8 %>
+    <% end %>
+    <%= d.row("1") do %>
+        <%= d.show_method "动作：", :action, label_span: 3, value_span: 8 %>
+    <% end %>
+    <%= d.row("1") do %>
+        <%= d.show_content "状态：", label_span: 3, value_span: 8 do %>
+            <%= fdn_menu.status== 'Y' ? '已启用' : '已停用' %>
+        <% end %>
+    <% end %>
+<% end %>

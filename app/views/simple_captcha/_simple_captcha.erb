@@ -1,0 +1,12 @@
+<div class="input-group">
+  <%= simple_captcha_options[:field] %>
+  <span class="input-group-addon" id="basic-addon2">
+      <%= link_to js_render_captcha_fdn_user_sessions_path, :remote => true do %>
+        <%= simple_captcha_options[:image] %>
+      <% end %>
+  </span>
+</div>
+<script type="text/javascript">
+    $("[alt='captcha']").css("height","20px");
+</script>
+

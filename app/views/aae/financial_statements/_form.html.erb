@@ -1,0 +1,58 @@
+<%= datepicker_include_tag %>
+<div class="ibox-content">
+  <%= f.hidden_field :ent_id, :value => current_org.resource_id %>
+
+  <%= f.row("1:1") do %>
+      <%= f.control('text', '企业名称', :ent_name, :value => current_org.name, readonly: true) %>
+  <% end %>
+  <%= f.row("1:1") do %>
+      <%= f.control('datepicker', '报表年份', :year, class: 'date　required') %>
+  <% end %>
+  <div class="form-group">
+    <label class="control-label col-sm-2">报表月份</label>
+
+    <% if @time_code.to_s =='1' %>
+        <div class="col-sm-10">
+          <%= f.label "1月" %><%= f.radio_button :month, value= 1 %>
+          <%= f.label "2月" %><%= f.radio_button :month, value= 2 %>
+          <%= f.label "3月" %><%= f.radio_button :month, value= 3 %>
+          <%= f.label "4月" %><%= f.radio_button :month, value= 4 %>
+          <%= f.label "5月" %><%= f.radio_button :month, value= 5 %>
+          <%= f.label "6月" %><%= f.radio_button :month, value= 6 %>
+        </div>
+        <label class="control-label col-sm-2"></label>
+        <div class="col-sm-10">
+          <%= f.label "7月" %><%= f.radio_button :month, value=7 %>
+          <%= f.label "8月" %><%= f.radio_button :month, value=8 %>
+          <%= f.label "9月" %><%= f.radio_button :month, value=9 %>
+          <%= f.label "10月" %><%= f.radio_button :month, value=10 %>
+          <%= f.label "11月" %><%= f.radio_button :month, value=11 %>
+          <%= f.label "12月" %><%= f.radio_button :month, value=12 %>
+        </div>
+    <% else %>
+          <%= f.label "12月" %><%= f.radio_button :month, value= 12 %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.date').datepicker({
+            minViewMode: 2,
+            format: 'yyyy',
+            startView: 2,
+            startDate: "2003"
+        });
+
+        var radio_length = $("input:radio[id^='aae_financial_statement_month']");
+        for (var i = 0; i < radio_length.length; i++) {
+            radio_length[i].disabled = true;
+        }
+    })
+
+    $("#aae_financial_statement_year").change(function () {
+        var ent_id = $("#aae_financial_statement_ent_id").attr("value");
+        var year = $("#aae_financial_statement_year").val();
+        $.jq_remote_get('<%= url_for(:controller => 'aae/financial_statements',:action => :ajax_refresh) %>', {'ent_id': ent_id, 'year': year, format: 'js'});
+    })
+</script>

@@ -1,0 +1,16 @@
+<%== tabs(@tab_index) do |t| %>
+
+    <%= t.tab('基本信息') do %>
+        <%= render :partial => 'form_show', :locals => {:aae_financial_statement => @aae_financial_statement} %>
+    <% end %>
+    <%= t.tab('资金负债表') do %>
+        <%= render :partial => 'balance_show', :locals => {:aae_financial_statement => @aae_financial_statement} %>
+    <% end %>
+    <%= t.tab('利润表') do %>
+        <%= render :partial => 'profit_show', :locals => {:aae_financial_statement => @aae_financial_statement} %>
+    <% end %>
+    <%= t.tab('现金流量表') do %>
+        <%= render :partial => 'cash_flow_show', :locals => {:aae_financial_statement => @aae_financial_statement} %>
+    <% end %>
+
+<% end %>

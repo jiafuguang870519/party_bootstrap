@@ -1,0 +1,29 @@
+<%= javascript_include_tag rjs_all_of_fdn_organizations_path(columns: ['id', 'name']) %>
+<%menu = Fdn::Menu.where(:code => 'fdn_organizations_list').first%>
+<%= nav_bar(menu) do %>
+    <%= bs_button_window(new_fdn_organization_path(type:'ENT'), '创建企业', 'btn-primary btn-sm', 'fa fa-check',)%>
+<% end %>
+<div class="wrapper wrapper-content">
+    <div class="ibox-title">
+      <%= search_form_for(@search, url: ent_index_fdn_organizations_path, nav_bar: true) do |f| %>
+          <div class="input-group col-md-2"><%= f.control 'text','企业id', 'id_eq' ,readonly: true %></div>
+          <div class="input-group col-md-2">
+            <%= f.control('autocomplete', '企业名称', :name_cont, 'data-source'=>"orgs", 'data-mapping'=>'{"value": "q_id_eq"}',value:params[:q][:name_cont]) %>
+          </div>
+      <% end %>
+    </div>
+    <div class="ibox-content">
+        <%= table([{w: 3, t: '企业名称'},{w: 2, t: '组织机构代码'},{w: 2, t: '企业级次'},{w: 2, t: '所属组织架构'},{w: 2, t: '操作'}],
+                    obj: @organizations,
+                    fixed: true,
+                    pagi_param_name: 'page') do |org| %>
+              <%= table_tr({c: seq(@organizations, org, params[:page]||1)},
+                           {l: org.name},
+                           {c: org.code},
+                           {c: org.ent_level_value},
+                           {c: org.using_tree(Time.now)},
+                           {c: bs_link_window(url_for(:controller =>"fdn/organizations", :action => :show, :id => org.id), '查看', '', '',) +"|"+
+                               bs_link_window(url_for(:controller =>"fdn/organizations", :action => :edit, :id => org.id), '编辑', '', '',)}) %>
+        <% end %>
+    </div>
+</div>

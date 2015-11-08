@@ -1,0 +1,23 @@
+<%= button_div() do %>
+    <%= bs_close %>
+<% end %>
+<div class="ibox-content">
+  <%= form_show(@user) do |user| %>
+      <%= user.row("1:1") do %>
+          <%= user.show_method '帐号：', :username %>
+          <%= user.show_method '姓名：', :full_name %>
+      <% end %>
+      <%= user.row("1:1") do %>
+          <%= user.show_method '办公电话：', :tel %>
+          <%= user.show_method '手机：', :mobile %>
+      <% end %>
+      <%= user.row("1:1") do %>
+          <%= user.show_method '传真：', :fax %>
+          <%= user.show_method 'Email：', :email %>
+      <% end %>
+      <%= user.row("1:1") do %>
+          <%= user.show_method 'QQ：', :im_soft %>
+          <%= user.show_method '其他：', :memo %>
+      <% end %>
+  <% end %>
+</div>

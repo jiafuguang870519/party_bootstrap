@@ -1,0 +1,89 @@
+<%= javascript_include_tag "lazy_high_charts/highcharts", "lazy_high_charts/exporting", "lazy_high_charts/highcharts-more" %>
+<%= hidden_field_tag(:year, params[:year]) %>
+<%= hidden_field_tag(:month, params[:month]) %>
+<%= hidden_field_tag(:ent_id, params[:ent_id]) %>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <%= render('analysis_spaces/line', line: @attr3, name: @name3) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <%= render('analysis_spaces/line', line: @speed3, name: @name13) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <%= render('analysis_spaces/line', line: @attr4, name: @name4) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <%= render('analysis_spaces/line', line: @attr5, name: @name5) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <%= render('analysis_spaces/line', line: @attr6, name: @name6) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <%= render('analysis_spaces/line', line: @attr7, name: @name7) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <%= render('analysis_spaces/line', line: @attr9, name: @name9) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <%= render('analysis_spaces/line', line: @speed9, name: @name191) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <%= render('analysis_spaces/line', line: @attr, name: @name) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

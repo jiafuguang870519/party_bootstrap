@@ -1,0 +1,4 @@
+<%= form_tag import_fdn_party_orgs_path(), multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "导入数据" %>
+<% end %>

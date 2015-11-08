@@ -1,0 +1,46 @@
+<%#= render :partial => 'main/nav', :locals => {:menu_code => 'fdn_menus'} %>
+<%menu = Fdn::Menu.where(:code => 'fdn_menus').first%>
+<%= nav_bar(menu) do %>
+    <%= bs_button_window(new_fdn_menu_path, '创建', 'btn-primary btn-sm', 'fa fa-check')%>
+<% end %>
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-content">
+          <div class="file-manager">
+            <h3>功能菜单：</h3>
+            <div id="treeview5" class="test treeview"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins" id="detail_show">
+        <%= render 'detail_show', fdn_menu: @fdn_menu %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $.getJSON("tree.json", function (data) {
+        $('#treeview5').treeview({
+            color: "#428bca",
+            expandIcon: 'glyphicon glyphicon-chevron-right',
+            collapseIcon: 'glyphicon glyphicon-chevron-down',
+            nodeIcon: 'glyphicon glyphicon-bookmark',
+            showTags: true,
+            data: data,
+            onNodeSelected: function (event, node) {
+                $.jq_remote_get('<%= url_for(:controller => 'fdn/menus',:action => :detail_refresh) %>',{'id': node.id, format : 'js'});
+
+            }
+        });
+    });
+
+    $('#toolbox_edit_menu').on('click', function(){
+
+    });
+
+</script>

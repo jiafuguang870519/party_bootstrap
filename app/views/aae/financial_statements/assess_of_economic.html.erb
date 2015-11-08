@@ -1,0 +1,79 @@
+<%= javascript_include_tag "lazy_high_charts/highcharts", "lazy_high_charts/exporting", "lazy_high_charts/highcharts-more" %>
+<%= hidden_field_tag(:year, params[:year]) %>
+<%= hidden_field_tag(:month, params[:month]) %>
+<%= hidden_field_tag(:ent_id, params[:ent_id]) %>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <%= render('analysis_spaces/line', line: @attr11, name: @name11) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <%= render('analysis_spaces/line', line: @attr14, name:@name14) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <%=render('analysis_spaces/line', line:@speed11, name:@name111) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <%=render('analysis_spaces/line', line:@attr19, name:@name19) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <%=render('analysis_spaces/line', line:@attr21, name:@name21)%>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <%=render('analysis_spaces/line', line:@attr23, name:@name23) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <%=render('analysis_spaces/line', line:@attr24, name:@name24)%>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <%=render('analysis_spaces/line', line:@attr, name:@name) %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<%= form_for(@role, nav: {}) do |f| %>
+    <div class="ibox-content">
+    <%= hidden_field_tag 'user', 'user'%>
+    <%= f.row('1:1') do %>
+        <%= f.control('text', '角色名：', 'name', readonly: true) %>
+    <% end %>
+    <%= f.row('1:1') do %>
+        <%#= @users.inspect %>
+        <%= f.control('multiselect','用户：', :user_ids, choices: @users.map { |u| [u.full_name, u.id] })%>
+        <%#= f.control('multiselect_list', '用户', 'user_ids', choices: @users.map { |u| [u.full_name, u.id] }, js_options: {height: 180}) %>
+    <% end %>
+    </div>
+<% end %>

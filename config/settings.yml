@@ -1,0 +1,15 @@
+layout:
+  form: ['new', 'edit', 'show', 'create', 'update']
+assets:
+  javascript:
+    main:
+    fdn/menus:
+      all: ['/js/plugins/treeview/bootstrap-treeview.js', '/js/plugins/pace/pace.min.js']
+    fdn/roles:
+      all: ['/js/plugins/treeview/bootstrap-treeview.js', '/js/plugins/pace/pace.min.js']
+    fdn/loggers:
+      all: ['/js/plugins/datapicker/bootstrap-datepicker.js']
+  css:
+    main:
+    fdn/loggers:
+      all: ['/css/plugins/datapicker/datepicker3.css']

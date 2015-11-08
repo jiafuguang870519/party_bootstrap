@@ -1,0 +1,24 @@
+<%#= render :partial => 'main/nav', :locals => {:menu_code => 'financial_month'} %>
+<% menu = Fdn::Menu.where(:code => 'financial_month').first %>
+<%= nav_bar(menu) do %>
+    <%= bs_button_window(new_aae_financial_statement_path(:time_code=>1), '创建', 'btn-primary btn-sm', 'fa fa-check',) %>
+<% end %>
+<div class="ibox float-e-margins">
+  <div class="ibox-content">
+    <div class="file-manager">
+
+      <%= table([{w: 4, t: '企业名称'}, {w: 2, t: '报表年份'}, {w: 2, t: '报表月份'}, {w: 3, t: '操作'}],
+                obj: @aae_financial_statements,
+                id: "aae_financial_statements_table",
+                pagi_param_name: 'q_page') do |aae_financial_statements| %>
+          <%= table_tr({c: seq(@aae_financial_statements, aae_financial_statements, params[:q_page]||1)},
+                       {c: current_org.name},
+                       {c: aae_financial_statements.year},
+                       {c: aae_financial_statements.month},
+                       {c: bs_link_window(url_for(:controller => "aae/financial_statements", :action => :show, :id => aae_financial_statements.id), '查看', '', '',) +"|"+
+                               bs_link_window(url_for(:controller => "aae/financial_statements", :action => :edit, :id => aae_financial_statements.id), '编辑', '', '',)}) %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

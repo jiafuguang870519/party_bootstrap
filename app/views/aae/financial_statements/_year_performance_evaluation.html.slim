@@ -1,0 +1,40 @@
+= table([{w: 3, l: '指标名称'}, {w: 2, t: '指标值'}, {w: 2, t: '去年同期'}, {w: 2, t: '变动比率'}],\
+           show_seq: false,\
+           caption: @year.to_s+'年财务年报分析指标') do
+   =table_tr({l: bs_link_window(url_for(:controller => "aae/financial_statements", :action=>:assess_of_economic, :year=>@year, :month=>12, :ent_id=>@ent_id),'经济业绩考核')})
+   =table_tr({l: '&nbsp;&nbsp;&nbsp;应收账款周转率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"一般设置标准值为3，越高说明资金周转能力快"</small></div>'.html_safe},\
+             {c: @indicator.nil?? "": @indicator.indicator_attr11.nil? ? "" : format("%.2f",@indicator.indicator_attr11),:class=>(@indicator.check_attr11 if !@indicator.nil?),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+             {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr11.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr11),:class=>(@indicator_last_year.check_attr11 if !@indicator_last_year.nil?)},\
+             {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr11")})
+   =table_tr({l: '&nbsp;&nbsp;&nbsp;应收账款周转天数<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"与周转率时反比关系，数值越小，周转越快"</small></div>'.html_safe},\
+             {c: @indicator.nil?? "": @indicator.indicator_attr14.nil? ? "" : format("%.2f",@indicator.indicator_attr14),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+             {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr14.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr14)},\
+             {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr14")})
+   =table_tr({l: '&nbsp;&nbsp;&nbsp;存货周转率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"指标越高，企业销售能力越强"</small></div>'.html_safe},\
+             {c: @indicator.nil?? "": @indicator.indicator_attr15.nil? ? "" : format("%.2f",@indicator.indicator_attr15),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+             {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr15.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr15)},\
+             {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr15")})
+   =table_tr({l: '&nbsp;&nbsp;&nbsp;存货周转天数<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"该指标越小，说明周转期越快"</small></div>'.html_safe},\
+             {c: @indicator.nil?? "": @indicator.indicator_attr18.nil? ? "" : format("%.2f",@indicator.indicator_attr18),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+             {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr18.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr18)},\
+             {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr18")})
+   =table_tr({l: '&nbsp;&nbsp;&nbsp;流动资产周转率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"该指标越高，流动资产周转速度越快"</small></div>'.html_safe},\
+             {c: @indicator.nil?? "": @indicator.indicator_attr19.nil? ? "" : format("%.2f",@indicator.indicator_attr19),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+             {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr19.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr19)},\
+             {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr19")})
+   =table_tr({l: '&nbsp;&nbsp;&nbsp;流动资产周转天数<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"与流动资产周转率成反比关系"</small></div>'.html_safe},\
+             {c: @indicator.nil?? "": @indicator.indicator_attr21.nil? ? "" : format("%.2f",@indicator.indicator_attr21),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+             {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr21.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr21)},\
+             {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr21")})
+   =table_tr({l: '&nbsp;&nbsp;&nbsp;固定资产收入率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"概述值越高，说明企业一段时间内固定资产结构合理"</small></div>'.html_safe},\
+             {c: @indicator.nil?? "": @indicator.indicator_attr22.nil? ? "" : format("%.2f",@indicator.indicator_attr22),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+             {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr22.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr22)},\
+             {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr22")})
+   =table_tr({l: '&nbsp;&nbsp;&nbsp;总资产周转率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"数值越高，说明企业总资产周转快，盈利能力强"</small></div>'.html_safe},\
+             {c: @indicator.nil?? "": @indicator.indicator_attr23.nil? ? "" : format("%.2f",@indicator.indicator_attr23),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+             {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr23.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr23)},\
+             {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr23")})
+   =table_tr({l: '&nbsp;&nbsp;&nbsp;营业周期<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"周期越短，周转速度越快"</small></div>'.html_safe},\
+             {c: @indicator.nil?? "": @indicator.indicator_attr24.nil? ? "" : format("%.2f",@indicator.indicator_attr24),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+             {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr24.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr24)},\
+             {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr24")})

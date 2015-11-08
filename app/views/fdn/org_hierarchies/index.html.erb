@@ -1,0 +1,21 @@
+<%menu = Fdn::Menu.where(:code => 'fdn_organizations_tree').first%>
+<%= nav_bar(menu) do %>
+    <%= bs_button_window(new_fdn_org_hierarchy_path, '创建', 'btn-primary btn-sm', 'fa fa-check',)%>
+<% end %>
+<div class="wrapper wrapper-content">
+    <div class="ibox-title">
+    </div>
+    <div class="ibox-content">
+        <%= table([{w: 3, t: '组织架构名称'},{w: 2, t: '简称'},{w: 2, t: '编码'},{w: 2, t: '操作'}],
+                    obj: @fdn_org_hierarchies,
+                    fixed: true,
+                    pagi_param_name: 'page') do |org_hie| %>
+              <%= table_tr({c: seq(@fdn_org_hierarchies, org_hie, params[:page]||1)},
+                           {l: org_hie.name},
+                           {c: "<span class='badge #{org_hie.icon} '>#{org_hie.short_name}</span>".html_safe},
+                           {c: org_hie.code},
+                           {c: bs_link_window(fdn_org_hierarchy_path(org_hie), '查看', '', '',) +"|"+
+                               bs_link_window(edit_fdn_org_hierarchy_path(org_hie), '编辑', '', '',)}) %>
+        <% end %>
+    </div>
+</div>

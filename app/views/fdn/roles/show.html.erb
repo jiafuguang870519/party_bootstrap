@@ -1,0 +1,17 @@
+<%= button_div() do %>
+    <%= bs_close %>
+<% end %>
+<div class="ibox-content">
+  <%= form_show(@role) do |role| %>
+      <%= role.row("1:1") do %>
+          <%= role.show_method '角色名：', :name %>
+          <%= role.show_method '代码：', :code %>
+      <% end %>
+      <%= role.row('1:1') do %>
+          <%= role.show_content '所属部门：' do %>
+            <%= @role.organization.name %>
+          <% end %>
+          <%= role.show_method '说明：', :description %>
+      <% end %>
+  <% end %>
+</div>

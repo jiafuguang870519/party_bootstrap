@@ -1,0 +1,29 @@
+<%= jstree_include_tag %>
+<% menu = Fdn::Menu.where(:code => 'party_orgs').first %>
+<%= nav_bar(menu) do %>
+    <%#= bs_button_window(new_fdn_menu_path, '创建', 'btn-primary btn-sm', 'fa fa-check',)%>
+<% end %>
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="ibox float-e-margins">
+        <div class="ibox-content">
+          <div class="file-manager">
+            <div class="ibox-content" style="padding-left:0;padding-top:2px">
+              <%#= js_tree_xml_tag('org_tree', fdn_roles_path(:format => :xml)) %>
+
+              <div id='org_tree' class="test treeview">
+              </div>
+              <%= js_tree_org_json_tag('org_tree', url_for(""), 'org_id', true, 'search_tree') %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="ibox float-e-margins" id="detail_show">
+        <%= render 'org_list' %>
+      </div>
+    </div>
+  </div>
+</div>

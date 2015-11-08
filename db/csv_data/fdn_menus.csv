@@ -1,0 +1,13 @@
+id,name,code,description,title_img,controller,action,params,route_path,parent_id,children_count,position,depth,created_at,updated_at,created_by,updated_by,status
+1,系统菜单,root,系统菜单,root,,,,,,0,10,0,2013-12-19 16:01:01,,,,Y
+10,首页,home,首页,home,main,index,,,1,0,10,1,2013-12-19 16:01:01,,,,Y
+20,数据导入,party_orgs,数据导入,file-excel-o,fdn/party_orgs,index,,,1,0,10,1,2013-12-19 16:01:01,,,,Y
+30,数据统计查询,home,数据统计查询,search-minus,main,index,,,1,0,10,1,2013-12-19 16:01:01,,,,Y
+40,数据统计分析,home,数据统计分析,bar-chart-o,main,index,,,1,0,10,1,2013-12-19 16:01:01,,,,Y
+100,系统设置,setting,系统设置,gear,,,,,1,7,90,1,2013-12-19 16:01:01,,,,Y
+1001,用户管理,fdn_users,用户管理,users,fdn/users,index,,,100,0,10,2,2013-12-19 16:01:01,,,,Y
+1002,组织管理,fdn_organizations,组织管理,,,,,,100,2,20,2,2013-12-19 16:01:01,,,,Y
+1003,权限管理,fdn_roles,权限管理,,fdn/roles,index,,,100,0,30,2,2013-12-19 16:01:01,,,,Y
+1008,组织维护,fdn_organizations_list,组织维护,,fdn/organizations,ent_index,,,1002,0,10,0,2013-12-19 16:01:01,,,,Y
+1004,系统日志,fdn_loggers,系统日志,,fdn/loggers,index,,,100,0,40,2,2013-12-19 16:01:01,,,,Y
+1005,功能菜单,fdn_menus,功能菜单,,fdn/menus,index,,,100,0,50,2,2013-12-19 16:01:01,,,,Y

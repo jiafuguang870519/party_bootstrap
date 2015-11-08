@@ -1,0 +1,77 @@
+<%= jstree_include_tag %>
+<% menu = Fdn::Menu.where(:code => 'fdn_users').first %>
+<%= nav_bar(menu) do %>
+    <%#= bs_button_window(new_fdn_menu_path, '创建', 'btn-primary btn-sm', 'fa fa-check',)%>
+<% end %>
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="ibox float-e-margins">
+        <div class="ibox-content">
+          <div class="file-manager">
+            <h3>组织架构：</h3>
+            <%= text_field_tag 'search_tree' ,'',class:'form-control',placeholder:'组织名称查询'%>
+            <div class="ibox-content" style="padding-left:0;padding-top:2px">
+              <%#= js_tree_xml_tag('org_tree', fdn_roles_path(:format => :xml)) %>
+
+              <div id='org_tree' class="test treeview">
+              </div>
+              <%= js_tree_org_json_tag('org_tree',url_for(:controller => 'fdn/users',:action => :detail_refresh),'org_id',true,'search_tree') %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="ibox float-e-margins" id="detail_show">
+        <%= render 'user_list', :users => @users ,:org_id => @org_id %>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $('#org_tree').bind('loaded.jstree', function (e, data) {
+        $('#org_tree').find('li').each(function () {
+            if ('<%= @org_id %>' == $(this).attr('id')) { //如果节点的ID包含于arr，表示要选中
+                $(this).find('a').addClass('jstree-clicked');
+            }
+        });
+    })
+//    $('#org_tree').bind('loaded.jstree', function (e, data) {
+////        $('#org_tree').jstree('open_all');
+//    })
+//    $('#org_tree').on('changed.jstree', function (e, data) {
+//        var i, j, r ;
+//        for(i = 0, j = data.selected.length; i < j; i++) {
+//          r = data.instance.get_node(data.selected[i]).id;
+//        }
+//        if (r != 9999){
+//            $.jq_remote_get('<%= url_for(:controller => 'fdn/users',:action => :detail_refresh) %>',{'org_id': r, format : 'js'});
+//        }
+//      }).jstree({
+//        'core': {
+//            "multiple" : false,
+//            'data': {
+//                'url': function (node) {
+//                      return '/fdn/roles/org_tree.json?org_id='+node.id;
+//                    },
+//                'data': function (node) {
+//                    return { 'id': node.id };
+//                }
+//            },
+//            'dblclick_toggle': false
+//        },
+//        "plugins" : [ "search" ]
+//
+//    });
+//    $(function () {
+//      var to = false;
+//      $('#search_tree').keyup(function () {
+//        if(to) { clearTimeout(to); }
+//        to = setTimeout(function () {
+//          var v = $('#search_tree').val();
+//          $('#org_tree').jstree(true).search(v);
+//        }, 250);
+//      });
+//    });
+</script>

@@ -1,0 +1,1086 @@
+<% aae_financial_statement.balance || aae_financial_statement.build_balance %>
+<%= f.fields_for :balance do |t| %>
+    <%= t.hidden_field :fs_id, :value => aae_financial_statement.id %>
+
+    <table class="table table-striped table-bordered table-hover " id="list_tab">
+    <tr class="">
+      <td class="span12" colspan="8" style="text-align:center;">资产负债表(单位：元)</td>
+    </tr>
+    <tr class="">
+      <td class="span2">项目</td>
+      <td class="span1" style="text-align:center;">行次</td>
+      <td class="span1" style="text-align:center;">期初数</td>
+      <td class="span1" style="text-align:center;">期末数</td>
+      <td class="span2">项目</td>
+      <td class="span1" style="text-align:center;">行次</td>
+      <td class="span1" style="text-align:center;">期初数</td>
+      <td class="span1" style="text-align:center;">期末数</td>
+    </tr>
+
+    <tr class="">
+      <td>流动资产：</td>
+      <td style="text-align:center;">1</td>
+      <td><%#= t.number_field(:start_attr1, style:"width:80px;text-align: right;") %></td>
+      <td><%#= t.number_field(:end_attr1, style:"width:80px;text-align: right;") %></td>
+      <td>流动负债：</td>
+      <td style="text-align:center;">67</td>
+      <td><%#= t.number_field(:start_attr67, style:"width:80px;text-align: right;") %></td>
+      <td><%#= t.number_field(:end_attr67, style:"width:80px;text-align: right;") %></td>
+    </tr>
+
+
+    <tr class="">
+      <td style="text-indent: 2em">货币资金</td>
+      <td style="text-align:center;">2</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr2, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr2, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 短期借款</td>
+      <td style="text-align:center;">68</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr68, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr68, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">△结算备付金</td>
+      <td style="text-align:center;">3</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr3, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr3, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em">△向中央银行借款</td>
+      <td style="text-align:center;">69</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr69, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr69, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">△拆出资金</td>
+      <td style="text-align:center;">4</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr4, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr4, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em">△吸收存款及同业存放</td>
+      <td style="text-align:center;">70</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr70, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr70, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">交易性金融资产</td>
+      <td style="text-align:center;">5</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr5, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr5, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> △拆入资金</td>
+      <td style="text-align:center;">71</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr71, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr71, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">△买入返售金融资产</td>
+      <td style="text-align:center;">6</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr6, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr6, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em">交易性金融负债</td>
+      <td style="text-align:center;">72</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr72, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr72, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td style="text-indent: 2em">短期投资</td>
+      <td style="text-align:center;">7</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr7, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr7, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em">应付票据</td>
+      <td style="text-align:center;">73</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr73, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr73, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">应收票据</td>
+      <td style="text-align:center;">8</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr8, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr8, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 应付帐款</td>
+      <td style="text-align:center;">74</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr74, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr74, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">应收帐款</td>
+      <td style="text-align:center;">9</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr9, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr9, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 预收帐款</td>
+      <td style="text-align:center;">75</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr75, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr75, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 4em">减：坏帐准备</td>
+      <td style="text-align:center;">10</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr10, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr10, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em">△卖出回购金融资产款</td>
+      <td style="text-align:center;">76</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr76, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr76, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">应收帐款净额</td>
+      <td style="text-align:center;">11</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr11, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr11, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em">△应付手续费及佣金</td>
+      <td style="text-align:center;">77</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr77, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr77, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">预付款项</td>
+      <td style="text-align:center;">12</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr12, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr12, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em">应付职工薪酬</td>
+      <td style="text-align:center;">78</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr78, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr78, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">应收股利</td>
+      <td style="text-align:center;">13</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr13, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr13, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 其中：应付工资</td>
+      <td style="text-align:center;">79</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr79, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr79, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">应收利息</td>
+      <td style="text-align:center;">14</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr14, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr14, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 4em">应付福利费</td>
+      <td style="text-align:center;">80</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr80, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr80, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">△应收保费</td>
+      <td style="text-align:center;">15</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr15, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr15, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 6em"> #其中：职工奖励及福利基金</td>
+      <td style="text-align:center;">81</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr81, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr81, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td style="text-indent: 2em">△应收分保账款</td>
+      <td style="text-align:center;">16</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr16, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr16, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 应交税费</td>
+      <td style="text-align:center;">82</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr82, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr82, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td style="text-indent: 2em">△应收分保合同准备金</td>
+      <td style="text-align:center;">17</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr17, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr17, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 其中：应交税金</td>
+      <td style="text-align:center;">83</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr83, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr83, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">其他应收款</td>
+      <td style="text-align:center;">18</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr18, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr18, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 应付股利</td>
+      <td style="text-align:center;">84</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr84, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr84, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">应收补贴款</td>
+      <td style="text-align:center;">19</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr19, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr19, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 应付利息</td>
+      <td style="text-align:center;">85</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr85, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr85, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">存货</td>
+      <td style="text-align:center;">20</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr20, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr20, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 其他应交款</td>
+      <td style="text-align:center;">86</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr86, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr86, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">其中：△贵金属</td>
+      <td style="text-align:center;">21</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr21, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr21, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 其他应付款</td>
+      <td style="text-align:center;">87</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr87, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr87, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 4em">原材料</td>
+      <td style="text-align:center;">22</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr22, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr22, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> △应付分保账款</td>
+      <td style="text-align:center;">88</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr88, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr88, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 4em">库存商品（产成品）</td>
+      <td style="text-align:center;">23</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr23, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr23, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> △保险合同准备金</td>
+      <td style="text-align:center;">89</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr89, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr89, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td style="text-indent: 2em">待摊费用</td>
+      <td style="text-align:center;">24</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr24, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr24, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> △代理买卖证券款</td>
+      <td style="text-align:center;">90</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr90, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr90, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td style="text-indent: 2em">一年内到期的长期债券投资</td>
+      <td style="text-align:center;">25</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr25, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr25, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> △代理承销证券款</td>
+      <td style="text-align:center;">91</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr91, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr91, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">其他流动资产</td>
+      <td style="text-align:center;">26</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr26, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr26, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 预提费用</td>
+      <td style="text-align:center;">92</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr92, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr92, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td>流动资产合计</td>
+      <td style="text-align:center;">27</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr27, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr27, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 一年内到期的长期负债</td>
+      <td style="text-align:center;">93</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr93, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr93, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td>非流动资产：</td>
+      <td style="text-align:center;">28</td>
+      <td><%#= t.text_field(:start_attr28, style:"width:80px;text-align: right;") %></td>
+      <td><%#= t.text_field(:end_attr28, style:"width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 其他流动负债</td>
+      <td style="text-align:center;">94</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr94, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr94, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td style="text-indent: 2em">△发放贷款及垫款</td>
+      <td style="text-align:center;">29</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr29, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr29, style: "width:80px;text-align: right;") %></td>
+      <td>流动负债合计</td>
+      <td style="text-align:center;">95</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr95, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr95, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td style="text-indent: 2em">可供出售金融资产</td>
+      <td style="text-align:center;">30</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr30, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr30, style: "width:80px;text-align: right;") %></td>
+      <td>非流动负债：</td>
+      <td style="text-align:center;">96</td>
+      <td><%#= t.text_field(:start_attr96, style:"width:80px;text-align: right;") %></td>
+      <td><%#= t.text_field(:end_attr96, style:"width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">持有至到期投资</td>
+      <td style="text-align:center;">31</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr31, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr31, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 长期借款</td>
+      <td style="text-align:center;">97</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr97, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr97, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">长期应收款</td>
+      <td style="text-align:center;">32</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr32, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr32, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 应付债券</td>
+      <td style="text-align:center;">98</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr98, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr98, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">长期股权投资</td>
+      <td style="text-align:center;">33</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr33, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr33, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 专项应付款</td>
+      <td style="text-align:center;">99</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr99, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr99, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">长期债权投资</td>
+      <td style="text-align:center;">34</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr34, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr34, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 预计负债</td>
+      <td style="text-align:center;">100</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr100, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr100, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">投资性房地产</td>
+      <td style="text-align:center;">35</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr35, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr35, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 递延所得税负债</td>
+      <td style="text-align:center;">101</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr101, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr101, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">固定资产原价</td>
+      <td style="text-align:center;">36</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr36, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr36, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 其他非流动负债</td>
+      <td style="text-align:center;">102</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr102, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr102, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 4em">减：累计折旧</td>
+      <td style="text-align:center;">37</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr37, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr37, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 其中：特准储备基金</td>
+      <td style="text-align:center;">103</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr103, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr103, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">固定资产净值</td>
+      <td style="text-align:center;">38</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr38, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr38, style: "width:80px;text-align: right;") %></td>
+      <td>非流动负债合计</td>
+      <td style="text-align:center;">104</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr104, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr104, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 4em">减：固定资产减值准备</td>
+      <td style="text-align:center;">39</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr39, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr39, style: "width:80px;text-align: right;") %></td>
+      <td>负债合计</td>
+      <td style="text-align:center;">105</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr105, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr105, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">固定资产净额</td>
+      <td style="text-align:center;">40</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr40, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr40, style: "width:80px;text-align: right;") %></td>
+      <td> 所有者权益(或股东权益)：</td>
+      <td style="text-align:center;">106</td>
+      <td><%#= t.text_field(:start_attr106, style:"width:80px;text-align: right;") %></td>
+      <td><%#= t.text_field(:end_attr106, style:"width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em"> 工程物资</td>
+      <td style="text-align:center;">41</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr41, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr41, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 实收资本(或股本)</td>
+      <td style="text-align:center;">107</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr107, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr107, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em"> 在建工程</td>
+      <td style="text-align:center;">42</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr42, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr42, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 4em"> 国家资本</td>
+      <td style="text-align:center;">108</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr108, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr108, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">固定资产清理</td>
+      <td style="text-align:center;">43</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr43, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr43, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 4em"> 法人资本</td>
+      <td style="text-align:center;">109</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr109, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr109, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">生产性生物资产</td>
+      <td style="text-align:center;">44</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr44, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr44, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 4em"> 其中：国有法人资本</td>
+      <td style="text-align:center;">110</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr110, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr110, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">油气资产</td>
+      <td style="text-align:center;">45</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr45, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr45, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 6em"> 集体法人资本</td>
+      <td style="text-align:center;">111</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr111, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr111, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">无形资产</td>
+      <td style="text-align:center;">46</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr46, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr46, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 4em"> 个人资本</td>
+      <td style="text-align:center;">112</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr112, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr112, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em"> 开发支出</td>
+      <td style="text-align:center;">47</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr47, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr47, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 4em"> 外商资本</td>
+      <td style="text-align:center;">113</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr113, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr113, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">商誉</td>
+      <td style="text-align:center;">48</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr48, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr48, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> #减：已归还投资</td>
+      <td style="text-align:center;">114</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr114, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr114, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td style="text-indent: 2em">长期待摊费用</td>
+      <td style="text-align:center;">49</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr49, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr49, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 实收资本(或股本)净额</td>
+      <td style="text-align:center;">115</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr115, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr115, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">其他长期资产</td>
+      <td style="text-align:center;">50</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr50, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr50, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 资本公积</td>
+      <td style="text-align:center;">116</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr116, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr116, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em">递延所得税资产</td>
+      <td style="text-align:center;">51</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr51, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr51, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 4em"> 减：库存股</td>
+      <td style="text-align:center;">117</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr117, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr117, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td style="text-indent: 2em"> 其他非流动资产</td>
+      <td style="text-align:center;">52</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr52, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr52, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 专项储备</td>
+      <td style="text-align:center;">118</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr118, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr118, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td>非流动资产合计</td>
+      <td style="text-align:center;">53</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr53, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr53, style: "width:80px;text-align: right;") %></td>
+      <td style="text-indent: 2em"> 盈余公积</td>
+      <td style="text-align:center;">119</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr119, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr119, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">54</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 2em"> 其中：法定公益金</td>
+      <td style="text-align:center;">120</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr120, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr120, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">55</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 4em"> 法定公积金</td>
+      <td style="text-align:center;">121</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr121, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr121, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">56</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 4em"> 任意公积金</td>
+      <td style="text-align:center;">122</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr122, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr122, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">57</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 4em"> #储备基金</td>
+      <td style="text-align:center;">123</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr123, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr123, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">58</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 4em"> #企业发展基金</td>
+      <td style="text-align:center;">124</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr124, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr124, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">59</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 4em"> #利润归还投资</td>
+      <td style="text-align:center;">125</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr125, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr125, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">60</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 2em"> △一般风险准备</td>
+      <td style="text-align:center;">126</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr126, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr126, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">61</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 2em"> 未分配利润</td>
+      <td style="text-align:center;">127</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr127, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr127, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">62</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 2em"> *外币报表折算差额</td>
+      <td style="text-align:center;">128</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr128, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr128, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">63</td>
+      <td></td>
+      <td></td>
+      <td>*归属于母公司所有者权益合计</td>
+      <td style="text-align:center;">129</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr129, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr129, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">64</td>
+      <td></td>
+      <td></td>
+      <td style="text-indent: 2em"> *少数股东权益</td>
+      <td style="text-align:center;">130</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr130, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr130, style: "width:80px;text-align: right;") %></td>
+    </tr>
+    <tr class="">
+      <td></td>
+      <td style="text-align:center;">65</td>
+      <td></td>
+      <td></td>
+      <td> 所有者权益(或股东权益)合计</td>
+      <td style="text-align:center;">131</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr131, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr131, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td>资产总计</td>
+      <td style="text-align:center;">66</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr66, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr66, style: "width:80px;text-align: right;") %></td>
+      <td>负债及所有者权益(或股东权益)总计</td>
+      <td style="text-align:center;">132</td>
+      <td style="text-align:center;"><%= t.text_field(:start_attr132, style: "width:80px;text-align: right;") %></td>
+      <td style="text-align:center;"><%= t.text_field(:end_attr132, style: "width:80px;text-align: right;") %></td>
+    </tr>
+
+    <tr class="">
+      <td colspan="8">注:表中带*科目为合并会计报表专用，加△楷体项目为金融、保险业企业专用，带#为外商投资企业专用。</td>
+    </tr>
+    </table>
+<% end %>
+
+<script language="javascript" type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('input[id^=aae_financial_statement_balance_attributes_start_attr]').change(function () {
+
+                    var atrr01 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr9").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr9").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr10").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr10").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr11").val(atrr01);
+
+                    var atrr02 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr36").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr36").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr37").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr37").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr38").val(atrr02);
+
+                    var atrr03 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr38").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr38").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr39").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr39").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr40").val(atrr03);
+
+
+                    var atrr1 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr2").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr2").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr3").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr3").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr4").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr4").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr5").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr5").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr6").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr6").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr7").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr7").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr8").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr8").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr11").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr11").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr12").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr12").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr13").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr13").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr14").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr14").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr15").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr15").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr16").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr16").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr17").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr17").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr18").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr18").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr19").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr19").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr20").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr20").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr24").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr24").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr25").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr25").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr26").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr26").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr27").val(atrr1);
+
+
+                    var atrr2 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr29").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr29").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr30").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr30").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr31").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr31").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr32").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr32").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr33").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr33").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr34").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr34").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr35").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr35").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr40").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr40").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr41").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr41").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr42").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr42").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr43").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr43").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr44").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr44").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr45").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr45").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr46").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr46").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr47").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr47").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr48").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr48").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr49").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr49").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr50").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr50").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr51").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr51").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr52").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr52").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr53").val(atrr2);
+
+                    var atrr3 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr27").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr27").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr53").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr53").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr66").val(atrr3);
+
+
+                    var atrr4 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr68").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr68").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr69").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr69").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr70").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr70").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr71").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr71").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr72").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr72").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr73").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr73").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr74").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr74").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr75").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr75").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr76").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr76").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr77").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr77").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr78").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr78").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr82").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr82").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr84").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr84").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr85").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr85").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr86").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr86").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr87").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr87").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr88").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr88").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr89").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr89").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr90").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr90").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr91").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr91").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr92").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr92").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr93").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr93").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr94").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr94").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr95").val(atrr4);
+
+                    var atrr5 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr97").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr97").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr98").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr98").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr99").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr99").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr100").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr100").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr101").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr101").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr102").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr102").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr104").val(atrr5);
+
+
+                    var atrr6 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr95").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr95").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr104").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr104").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr105").val(atrr6);
+
+                    var atrr7 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr108").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr108").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr109").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr109").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr112").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr112").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr113").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr113").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr114").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr114").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr115").val(atrr7);
+
+                    var atrr8 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr115").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr115").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr116").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr116").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr117").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr117").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr118").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr118").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr119").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr119").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr126").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr126").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr127").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr127").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr128").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr128").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr130").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr130").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr131").val(atrr8);
+
+                    var atrr9 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr105").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr105").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr131").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr131").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr132").val(atrr9);
+
+                    var atrr10 = parseFloat(($("#aae_financial_statement_balance_attributes_start_attr79").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr79").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_start_attr80").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_start_attr80").val()));
+                    $("#aae_financial_statement_balance_attributes_start_attr78").val(atrr10);
+                }
+        );
+        $('input[id^=aae_financial_statement_balance_attributes_end_attr]').change(function () {
+
+
+                    var atrr01 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr9").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr9").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr10").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr10").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr11").val(atrr01);
+
+                    var atrr02 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr36").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr36").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr37").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr37").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr38").val(atrr02);
+
+                    var atrr03 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr38").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr38").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr39").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr39").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr40").val(atrr03);
+
+
+                    var atrr1 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr2").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr2").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr3").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr3").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr4").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr4").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr5").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr5").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr6").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr6").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr7").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr7").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr8").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr8").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr11").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr11").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr12").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr12").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr13").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr13").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr14").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr14").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr15").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr15").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr16").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr16").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr17").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr17").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr18").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr18").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr19").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr19").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr20").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr20").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr24").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr24").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr25").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr25").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr26").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr26").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr27").val(atrr1);
+
+
+                    var atrr2 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr29").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr29").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr30").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr30").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr31").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr31").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr32").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr32").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr33").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr33").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr34").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr34").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr35").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr35").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr40").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr40").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr41").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr41").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr42").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr42").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr43").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr43").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr44").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr44").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr45").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr45").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr46").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr46").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr47").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr47").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr48").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr48").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr49").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr49").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr50").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr50").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr51").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr51").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr52").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr52").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr53").val(atrr2);
+
+                    var atrr3 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr27").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr27").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr53").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr53").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr66").val(atrr3);
+
+
+                    var atrr4 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr68").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr68").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr69").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr69").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr70").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr70").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr71").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr71").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr72").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr72").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr73").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr73").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr74").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr74").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr75").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr75").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr76").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr76").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr77").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr77").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr78").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr78").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr82").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr82").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr84").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr84").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr85").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr85").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr86").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr86").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr87").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr87").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr88").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr88").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr89").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr89").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr90").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr90").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr91").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr91").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr92").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr92").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr93").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr93").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr94").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr94").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr95").val(atrr4);
+
+                    var atrr5 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr97").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr97").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr98").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr98").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr99").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr99").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr100").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr100").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr101").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr101").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr102").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr102").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr104").val(atrr5);
+
+
+                    var atrr6 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr95").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr95").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr104").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr104").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr105").val(atrr6);
+
+                    var atrr7 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr108").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr108").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr109").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr109").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr112").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr112").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr113").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr113").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr114").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr114").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr115").val(atrr7);
+
+                    var atrr8 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr115").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr115").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr116").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr116").val())) -
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr117").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr117").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr118").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr118").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr119").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr119").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr126").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr126").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr127").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr127").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr128").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr128").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr130").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr130").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr131").val(atrr8);
+
+                    var atrr9 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr105").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr105").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr131").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr131").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr132").val(atrr9);
+
+
+                    var atrr10 = parseFloat(($("#aae_financial_statement_balance_attributes_end_attr79").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr79").val())) +
+                            parseFloat(($("#aae_financial_statement_balance_attributes_end_attr80").val() == '' ? '0' : $("#aae_financial_statement_balance_attributes_end_attr80").val()));
+                    $("#aae_financial_statement_balance_attributes_end_attr78").val(atrr10);
+                }
+        );
+        $('input[id^=aae_financial_statement_balance_attributes_start_attr]').change(function () {
+            $("#aae_financial_statement_balance_attributes_start_attr21").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr20").val())
+            });
+
+            $("#aae_financial_statement_balance_attributes_start_attr22").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr20").val())
+            });
+
+            $("#aae_financial_statement_balance_attributes_start_attr23").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr20").val())
+            });
+
+
+            $("#aae_financial_statement_balance_attributes_start_attr81").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr80").val())
+            });
+
+            $("#aae_financial_statement_balance_attributes_start_attr83").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr82").val())
+            });
+
+            $("#aae_financial_statement_balance_attributes_start_attr110").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr109").val())
+            });
+
+            $("#aae_financial_statement_balance_attributes_start_attr111").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr109").val())
+            });
+
+            $("#aae_financial_statement_balance_attributes_start_attr120").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr119").val())
+            });
+
+            $("#aae_financial_statement_balance_attributes_start_attr121").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr119").val())
+            });
+
+            $("#aae_financial_statement_balance_attributes_start_attr122").rules("add", {
+                max: parseFloat($("#aae_financial_statement_balance_attributes_start_attr119").val())
+            });
+        });
+    })
+    $('input[id^=aae_financial_statement_balance_attributes_end_attr]').change(function () {
+        $("#aae_financial_statement_balance_attributes_end_attr21").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr20").val())
+        });
+
+        $("#aae_financial_statement_balance_attributes_end_attr22").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr20").val())
+        });
+
+        $("#aae_financial_statement_balance_attributes_end_attr23").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr20").val())
+        });
+        $("#aae_financial_statement_balance_attributes_end_attr81").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr80").val())
+        });
+        $("#aae_financial_statement_balance_attributes_end_attr83").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr82").val())
+        });
+
+        $("#aae_financial_statement_balance_attributes_end_attr110").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr109").val())
+        });
+
+        $("#aae_financial_statement_balance_attributes_end_attr111").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr109").val())
+        });
+
+        $("#aae_financial_statement_balance_attributes_end_attr120").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr119").val())
+        });
+
+        $("#aae_financial_statement_balance_attributes_end_attr121").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr119").val())
+        });
+
+        $("#aae_financial_statement_balance_attributes_end_attr122").rules("add", {
+            max: parseFloat($("#aae_financial_statement_balance_attributes_end_attr119").val())
+        });
+
+
+
+    })
+
+</script>

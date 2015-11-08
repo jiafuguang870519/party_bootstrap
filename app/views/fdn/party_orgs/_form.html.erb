@@ -1,0 +1,41 @@
+<%= form_for(@fdn_party_org) do |f| %>
+  <% if @fdn_party_org.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fdn_party_org.errors.count, "error") %> prohibited this fdn_party_org from being saved:</h2>
+
+      <ul>
+      <% @fdn_party_org.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_name %><br>
+    <%= f.text_field :parent_name %>
+  </div>
+  <div class="field">
+    <%= f.label :setting_date %><br>
+    <%= f.date_select :setting_date %>
+  </div>
+  <div class="field">
+    <%= f.label :party_members %><br>
+    <%= f.text_field :party_members %>
+  </div>
+  <div class="field">
+    <%= f.label :pre_party_members %><br>
+    <%= f.text_field :pre_party_members %>
+  </div>
+  <div class="field">
+    <%= f.label :activist_party_members %><br>
+    <%= f.text_field :activist_party_members %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

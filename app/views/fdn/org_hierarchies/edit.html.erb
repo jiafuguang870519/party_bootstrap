@@ -1,0 +1,4 @@
+<%= javascript_include_tag rjs_all_of_fdn_organizations_path(columns:['id','name']) %>
+<%= form_for(@fdn_org_hierarchy,nav:{}) do |f| %>
+    <%= render :partial => 'form', :locals => {:fdn_org_hierarchy => @fdn_org_hierarchy, :f => f} %>
+<% end %>

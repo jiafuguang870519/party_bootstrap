@@ -1,0 +1,14 @@
+<div class="ibox-content">
+  <%= f.row("1:1") do %>
+      <%= f.control('text', "架构名称:", :name) %>
+      <%= f.control('text', "简称:", :short_name) %>
+  <% end %>
+  <%= f.row("1:1") do %>
+        <%= f.control('text', "编码:", :code) %>
+        <%= f.control('text', "图标:", :icon) %>
+    <% end %>
+  <%= f.row("1:1") do %>
+      <%= f.control('autocomplete', '根组织：', :org_name, 'data-source'=>"orgs", 'data-mapping'=>'{"value": "fdn_org_hierarchy_org_id"}',:value=>(fdn_org_hierarchy.org.name if fdn_org_hierarchy.org_id),:readonly_when_edit=>true) %>
+      <%= f.control('text', "根组织:", :org_id,:readonly=>true) %>
+  <% end %>
+</div>

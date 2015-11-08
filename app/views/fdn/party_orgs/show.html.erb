@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fdn_party_org.name %>
+</p>
+
+<p>
+  <strong>Parent name:</strong>
+  <%= @fdn_party_org.parent_name %>
+</p>
+
+<p>
+  <strong>Setting date:</strong>
+  <%= @fdn_party_org.setting_date %>
+</p>
+
+<p>
+  <strong>Party members:</strong>
+  <%= @fdn_party_org.party_members %>
+</p>
+
+<p>
+  <strong>Pre party members:</strong>
+  <%= @fdn_party_org.pre_party_members %>
+</p>
+
+<p>
+  <strong>Activist party members:</strong>
+  <%= @fdn_party_org.activist_party_members %>
+</p>
+
+<%= link_to 'Edit', edit_fdn_party_org_path(@fdn_party_org) %> |
+<%= link_to 'Back', fdn_party_orgs_path %>

@@ -1,0 +1,45 @@
+<%= datepicker_include_tag %>
+<% menu = Fdn::Menu.where(:code => 'month_analysis').first %>
+<%= nav_bar(menu) do %>
+<% end %>
+
+<div class="wrapper wrapper-content">
+  <div class="ibox-title">
+    <%= search_form_for(@search, url: month_analysis_aae_financial_statements_path, nav_bar: true) do |f| %>
+        <%= f.control 'datepicker', '年份：', 'year_eq' %>
+
+        <%= f.control 'select', '月份', 'month_eq', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], {:prompt => '请选择月份'}, class: " ", style: "width:200px" %>
+    <% end %>
+  </div>
+</div>
+
+
+<%== tabs(@tab_index) do |t| %>
+    <%= t.tab('短期偿债能力') do %>
+        <%= render :partial => 'month_short_term', :locals => {:financial_statement => @aae_financial_statement} %>
+    <% end %>
+    <%= t.tab('长期偿债能力') do %>
+        <%= render :partial => 'month_long_term', :locals => {:financial_statement => @aae_financial_statement} %>
+    <% end %>
+    <%= t.tab('经营业绩考核') do %>
+        <%= render :partial => 'month_performance_evaluation', :locals => {:financial_statement => @aae_financial_statement} %>
+    <% end %>
+<% end %>
+
+<script>
+    $(document).ready(function () {
+        $('.date').datepicker({
+            minViewMode: 2,
+            format: 'yyyy',
+            startView: 2,
+            startDate: "2003"
+        });
+    })
+
+
+    $('.good').css("color", "#28FF28");
+    //$(".good").attr("class", "icon-ok");
+    $('.bad').css("color", "#FF0000");
+    //$(".bad").attr("class", "icon-remove");
+
+</script>

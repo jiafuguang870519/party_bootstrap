@@ -1,0 +1,41 @@
+<div class="ibox-content">
+<%== form_show(org) do |f| %>
+    <%= f.row("1:1") do %>
+        <%= f.show_method "企业名称：", :name %>
+        <%= f.show_method "企业简称：", :short_name %>
+    <% end %>
+    <%= f.row("1:1") do %>
+        <%= f.show_content "企业级次：" do %>
+            <%= org.resource.ent_level_value if org.resource %>
+        <% end %>
+        <%= f.show_content "组织机构代码：" do %>
+            <%= org.resource.ent_code if org.resource %>
+        <% end %>
+    <% end %>
+    <%= f.row("1") do %>
+        <%= f.show_content "产权上级单位：" do %>
+            <%= org.with_hierarchy(1).parent.name if org.with_hierarchy(1).parent %>
+        <% end %>
+    <% end %>
+    <%= f.row("1") do %>
+        <%= f.show_content "快报上级单位：" do %>
+            <%= org.with_hierarchy(2).parent.name if org.with_hierarchy(2).parent %>
+        <% end %>
+    <% end %>
+    <%= f.row("1") do %>
+        <%= f.show_content "预算上级单位：" do %>
+            <%= org.with_hierarchy(3).parent.name if org.with_hierarchy(3).parent %>
+        <% end %>
+    <% end %>
+    <%= f.row("1") do %>
+        <%= f.show_content "决算上级单位：" do %>
+            <%= org.with_hierarchy(4).parent.name if org.with_hierarchy(4).parent %>
+        <% end %>
+    <% end %>
+    <%= f.row("1") do %>
+        <%= f.show_content "年报上级单位：" do %>
+            <%= org.with_hierarchy(5).parent.name if org.with_hierarchy(5).parent %>
+        <% end %>
+    <% end %>
+<% end %>
+</div>

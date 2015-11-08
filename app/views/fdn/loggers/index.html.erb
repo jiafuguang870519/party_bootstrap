@@ -1,0 +1,50 @@
+<% menu = Fdn::Menu.where(:code => 'fdn_loggers').first %>
+<%= nav_bar(menu) do %>
+<% end %>
+<div class="wrapper wrapper-content">
+  <div class="ibox-title">
+    <%= search_form_for(@search, url: fdn_loggers_path, nav_bar: true,
+                        btn_bar: bs_clear(fdn_loggers_path)) do |f| %>
+        <div class="input-group col-md-2">
+          <%= f.control('text', '帐号', :actor_username_or_actor_user_information_full_name_cont) %>
+        </div>
+        <div class="input-group col-md-2">
+          <%= f.control('text', '姓名', :actor_user_information_full_name_cont) %>
+        </div>
+        <div class="input-group col-md-2">
+            <%= f.control('text', '操作起始日期', :act_at_gteq, class: 'date ') %>
+        </div>
+        <div class="input-group col-md-2">
+            <%= f.control('text', '操作截止日期', :act_at_lteq, class: 'date ') %>
+        </div>
+        <div class="input-group col-md-2">
+          <%= f.control('text', '组织', :actor_org_name_cont) %>
+          <%#= f.control('text', '组织', :zzz_full_name_cont) %>
+        </div>
+    <% end %>
+  </div>
+  <div class="ibox-content">
+    <%= table([{w: 1, t: '帐号'}, {w: 1, t: '姓名'}, {w: 3, l: '组织'}, {w: 2, t: 'IP'}, {w: 1, t: '功能'}, {w: 1, t: '操作'}, {w: 2, t: '时间'}],
+              obj: @fdn_loggers,
+              pagi_param_name: 'page',
+              id: 'logger_table'
+        ) do |fdn_logger| %>
+        <%= table_tr({c: seq(@fdn_loggers, fdn_logger, params[:page])},
+                     {c: action_links([{value: fdn_logger.actor.username, url: show_info_fdn_loggers_path(:id => fdn_logger.actor.id)}])},
+                     {c: fdn_logger.actor.full_name},
+                     {l: fdn_logger.actor.resource.short_name},
+                     {c: fdn_logger.ip},
+                     {c: (fdn_logger.right_type ? fdn_logger.right_type.value : fdn_logger.controller)},
+                     {c: (ApplicationController::ACTION_LOGGER[fdn_logger.action.to_sym])},
+                     {c: fdn_logger.act_at.to_s(:db)}
+            ) %>
+    <% end %>
+  </div>
+</div>
+<script>
+    $('.date').datepicker({
+//        inputs: $('.actual_range').toArray(),
+//        autoclose: 'true',
+        format:'yyyy-mm-dd'
+    });
+</script>

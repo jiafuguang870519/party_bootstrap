@@ -1,0 +1,165 @@
+<script src="/js/plugins/jqgrid/i18n/grid.locale-cn.js"></script>
+<script src="/js/plugins/jqgrid/jquery.jqGrid.min.js"></script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+<link href="/css/plugins/jqgrid/ui.jqgrid.css" rel="stylesheet">
+<link href="/css/plugins/jQueryUI/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+  <%= button_div() do %>
+      <%= bs_close %>
+  <% end %>
+<div class="ibox-content">
+<div class="jqGrid_wrapper">
+  <table id="org_tree"></table>
+  <div id="porg_tree"></div>
+</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#org_tree").jqGrid({
+            treeGrid: true,
+            treeGridModel: 'adjacency',
+            ExpandColumn: 'name',
+            ExpandColClick: true,
+            url: '/fdn/organizations/tree_index?org_id=<%= @org_id %>&hierarchy_id=<%= @hierarchy_id %>&eff_time=<%= @eff_time %>&format=xml',
+            datatype: "xml",
+            mtype: "get",
+            colNames: ["id", "名称", "代码", "组织类别", "历史", "状态"],
+            colModel: [
+                {name: 'id', index: 'id', width: 0, key: true, hidden: true},
+                {name: 'name', index: 'name', width: 400, sortable: false},
+                {name: 'code', index: 'code', width: 100, align: 'center', sortable: false},
+                {name: 'org_type', index: 'org_type', width: 100, align: 'center', sortable: false},
+                {name: 'his', index: 'his', width: 100, align: 'center', sortable: false},
+                //            {name:'act', index:'act', width:100, align:'center'}
+                {name: 'show_status', index: 'show_status', editable: true, edittype: 'checkbox', editoptions: {value: "已启用:已停用"}, width: 100, align: "center", sortable: false}
+            ],
+                    sortname: 'id',
+//            gridComplete: function () {
+//                var ids = $("#org_tree").jqGrid('getDataIDs');
+//                var a = <%= @without_ent_id %>;
+//                for (var i = 0; i < ids.length; i++) {
+//                    var cl = ids[i];
+//                    if (a.contains(cl)) {
+//                        be = "";
+//                        se = "";
+//                        ce = "";
+//                    }
+//                    else {
+//                        be = "<input style='height:22px;width:35px;' type='button' value='编辑' onclick=\"$('#org_tree').editRow('" + cl + "');\"  />";
+//                        se = "<input style='height:22px;width:35px;' type='button' value='保存' onclick=\"$('#org_tree').saveRow('" + cl + "');\"  />";
+//                        ce = "<input style='height:22px;width:35px;' type='button' value='取消' onclick=\"$('#org_tree').restoreRow('" + cl + "');\" />";
+//
+//                    }
+//                    $("#org_tree").jqGrid('setRowData', ids[i], {act: be + se + ce});
+//                }
+//            },
+            editurl: '/fdn/organizations',
+            height: 'auto',
+            autowidth: true,
+            pager: "#porg_tree",
+            //rownumbers:true,
+            caption:"<%= @eff_time.to_date %><%= @org_hierarchy.name %>树型视图",
+            //rowNum:"-1",
+            shrinkToFit: true
+        });
+        Array.prototype.contains = function (obj) {
+            var a = false
+            var i = this.length;
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] == obj) {
+                    a = true
+                }
+            }
+            return a
+        }
+//        // Configuration for jqGrid Example 1
+//        $("#table_list_1").jqGrid({
+//            data: mydata,
+//            datatype: "local",
+//            height: 250,
+//            autowidth: true,
+//            shrinkToFit: true,
+//            rowNum: 10,
+//            rowList: [10, 20, 30],
+//            colNames: ['序号', '日期', '客户', '金额', '运费', '总额', '备注'],
+//            colModel: [
+//                {
+//                    name: 'id',
+//                    index: 'id',
+//                    width: 60,
+//                    sorttype: "int",
+//                    editable: true,
+//                    search: true
+//                },
+//                {
+//                    name: 'invdate',
+//                    index: 'invdate',
+//                    width: 90,
+//                    sorttype: "date",
+//                    editable: true,
+//                    formatter: "date"
+//                },
+//                {
+//                    name: 'name',
+//                    index: 'name',
+//                    editable: true,
+//                    width: 100
+//                },
+//                {
+//                    name: 'amount',
+//                    index: 'amount',
+//                    width: 80,
+//                    align: "right",
+//                    editable: true,
+//                    sorttype: "float",
+//                    formatter: "number"
+//                },
+//                {
+//                    name: 'tax',
+//                    index: 'tax',
+//                    width: 80,
+//                    editable: true,
+//                    align: "right",
+//                    sorttype: "float"
+//                },
+//                {
+//                    name: 'total',
+//                    index: 'total',
+//                    editable: true,
+//                    width: 80,
+//                    align: "right",
+//                    sorttype: "float"
+//                },
+//                {
+//                    name: 'note',
+//                    editable: true,
+//                    index: 'note',
+//                    width: 150,
+//                    sortable: false
+//                }
+//            ],
+//            pager: "#pager_list_1",
+//            viewrecords: true,
+//            caption: "jqGrid 示例1",
+//            add: true,
+//            edit: true,
+//            addtext: 'Add',
+//            edittext: 'Edit',
+//            hidegrid: false
+//        });
+//        $("#table_list_1").setSelection(4, true);
+//        $("#table_list_1").jqGrid('navGrid', '#pager_list_1', {
+//            edit: true,
+//            add: true,
+//            del: true,
+//            search: true
+//        }, {
+//            height: 200,
+//            reloadAfterSubmit: true
+//        });
+        $(window).bind('resize', function () {
+            var width = $('.jqGrid_wrapper').width();
+//            $('#table_list_1').setGridWidth(width);
+            $('#org_tree').setGridWidth(width);
+        });
+    });
+</script>

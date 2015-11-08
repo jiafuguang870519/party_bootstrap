@@ -1,0 +1,7 @@
+<div class="ibox-title">
+  <h5>菜单详情</h5>
+  <%= bs_ibox_tools('menu', 'fdn/menus', fdn_menu.id)%>
+</div>
+<div class="ibox-content">
+  <%= render :partial => 'fdn/menus/form_readonly', :locals => {:fdn_menu => fdn_menu} %>
+</div>

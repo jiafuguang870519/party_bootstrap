@@ -1,0 +1,22 @@
+<%= button_div() do %>
+    <%= bs_close %>
+<% end %>
+<div class="ibox-content">
+  <%= form_show(@fdn_user) do |u| %>
+      <%= u.row("1:1") do %>
+          <%= u.show_method '帐号：', :username %>
+          <%= u.show_method '姓名：', :full_name %>
+      <% end %>
+      <%= u.row('1:1') do %>
+          <%= u.show_content '启用：' do %>
+            <%= @fdn_user.status =='Y'? "是":"否" %>
+          <% end %>
+          <%= u.show_method '排序：', :seq %>
+      <% end %>
+      <%= u.row('1') do %>
+        <%= u.show_content '角色：' do %>
+          <%= @fdn_user.roles.map{|r|r.name}.join(",") %>
+        <% end %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
+
+    <title><%=t('software.system')%></title>
+    <meta name="keywords" content="<%=t('software.keywords')%>">
+    <meta name="description" content="<%=t('software.description')%>">
+
+    <%= stylesheet_link_tag 'application', :media => 'all', 'data-turbolinks-track' => true %>
+    <link href="/css/bootstrap.min.css?v=3.3.0" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.min.css?v=4.3.0" rel="stylesheet">
+    <link href="/js/plugins/layer/skin/layer.css" rel="stylesheet">
+
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=2.1.0" rel="stylesheet">
+    <%= csrf_meta_tags %>
+
+    <!-- Mainly scripts -->
+    <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/bootstrap.min.js?v=3.3.0"></script>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <script src="/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="/js/plugins/validate/messages_zh.min.js"></script>
+    <script src="/js/plugins/validate/additional-methods.min.js"></script>
+    <!--<script src="/js/plugins/validate/jquery.metadata.js"></script>-->
+    <!-- layer javascript -->
+    <script src="/js/plugins/layer/layer.min.js"></script>
+    <script>
+        layer.use('extend/layer.ext.js'); //载入layer拓展模块
+    </script>
+    <!--加载页面必要assets-->
+    <%= view_assets_tag%>
+    <%=yield :head %>
+
+</head>
+
+<body class="white-bg">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <%= yield %>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $( ".form-horizontal" ).validate();
+        })
+    </script>
+</body>
+
+</html>

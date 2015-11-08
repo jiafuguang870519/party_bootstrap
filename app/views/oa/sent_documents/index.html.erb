@@ -1,0 +1,17 @@
+<% menu = Fdn::Menu.where(:code => 'oa_sent_documents').first %>
+<%= nav_bar(menu) do %>
+    <%= bs_button_window(new_oa_sent_document_path(), '创建发文', 'btn-primary btn-sm', 'fa fa-check',) %>
+<% end %>
+<div class="ibox-content">
+  <%= tabs(@tab_idx) do |t| %>
+      <%= t.tab('待办文件') do %>
+          <%= render 'ntd' , docs: @docs %>
+      <% end %>
+      <%= t.tab('在途文件') do %>
+          <%= render 'hd' , docs: @docs %>
+      <% end %>
+      <%= t.tab('办结文件') do %>
+          <%= render 'fn' , docs: @docs %>
+      <% end %>
+  <% end %>
+</div>

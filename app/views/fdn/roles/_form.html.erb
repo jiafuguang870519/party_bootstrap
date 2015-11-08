@@ -1,0 +1,11 @@
+<div class="ibox-content">
+<%= f.hidden_field :organization_id %>
+<%= f.row("1:1") do %>
+    <%= f.control("text",'角色名：',:name ,class: 'required') %>
+    <%= f.control("text",'代码：',:code ,class: 'required') %>
+<% end %>
+<%= f.row("1:1") do %>
+    <%= f.control("text",'说明：',:description) %>
+    <%#= f.control('check_box','是否是领导：',:is_leader, checked_value: 1, unchecked_value: 0) if current_org.resource_type =="Fdn::Dept" %>
+<% end %>
+</div>

@@ -1,0 +1,26 @@
+<div class="ibox-content">
+  <div class="file-manager">
+    <%= button_div do %>
+        <%= bs_button_window(new_fdn_user_path(org_id: org_id), '创建', 'btn-primary btn-sm', 'fa fa-check') %>
+    <% end %>
+    <div class="ibox-content">
+      <%= table([{w: 1, t: '帐号'},{w: 2, t: '姓名'},{w: 2, t: '登录次数'},{w: 3, t: '操作'}],
+              obj: users,
+              pagi_param_name: 'q_page') do |user| %>
+        <%= table_tr({c: seq(users, user, params[:q_page]||1)},
+                     {l: user.username},
+                     {c: user.full_name},
+                     {c: user.login_count},
+                     {c: action_links([
+                                      {value: '查看', url: fdn_user_path(user)},
+                                      {value: '编辑', url: edit_fdn_user_path(user)},
+                                      {value: (user.status == "N" ? "启用" : "停用"),
+                                       url: stop_fdn_users_path, params: "'id' : '#{user.id}', 'act': '#{user.status == 'N' ? 'Y' : 'N'}'",
+                                       confirm: "确定#{(user.status == "N" ? "启用" : "停用")}吗？",url_method: 'confirm',tips: "用户已#{(user.status == "N" ? "启用" : "停用")}！" }
+                                      ]
+                     )}
+            )%>
+      <% end %>
+    </div>
+  </div>
+</div>

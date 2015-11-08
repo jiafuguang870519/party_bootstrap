@@ -1,0 +1,46 @@
+<%= jstree_include_tag %>
+<%= form_for(@role, nav: {}, :html => {:onsubmit => "fdn.getUserIdFromTree('tree_right','right_ids')"}) do |f| %>
+    <div class="ibox-content">
+      <%= hidden_field_tag 'right_ids', @right_ids %>
+      <%= f.row('1:1') do %>
+          <%= f.control('text', '角色名：', 'name', readonly: true) %>
+      <% end %>
+      <%= f.row('1') do %>
+          <%= f.controls('权限：', 'right_ids') do %>
+              <div id='right_tree' class="test treeview"></div>
+          <% end %>
+      <% end %>
+    </div>
+<% end %>
+<div id="event_result"></div>
+<script type="text/javascript">
+//    var arr = new Array();
+//    var right_ids = new Array();
+    right_ids = <%= @right_ids %>
+//    for(var i=0;i < right_ids.length;i++) {
+//        arr[i] = 'r'+right_ids[i].toString();
+//    }
+//    $('#right_tree').bind('loaded.jstree', function (e, data) {
+//        $('#right_tree').jstree('close_all');
+//        $('#right_tree').find('li').each(function () {
+//            if (arr.indexOf($(this).attr('id')) != '-1') { //如果节点的ID包含于arr，表示要选中
+//                $('#right_tree').jstree('check_node', $(this));
+//            }
+//        });
+//    })
+    $.getJSON("/fdn/roles/treeload.json?organization_id=<%= @organization_id %>&role_id=<%= @role.id %>", function (data) {
+        $('#right_tree').on('changed.jstree',function (e, data) {
+            var i, j, r = [];
+            for (i = 0, j = data.selected.length; i < j; i++) {
+                r.push(data.instance.get_node(data.selected[i]).id);
+            }
+            $('#right_ids').attr("value", r.join('|'))
+        }).jstree({
+                    'core': {
+                        'dblclick_toggle': false,
+                        'data': data
+                    },
+                    "plugins": [ "checkbox" ]
+                });
+    });
+</script>

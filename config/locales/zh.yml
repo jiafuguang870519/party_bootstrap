@@ -1,0 +1,153 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+#coding: utf-8
+zh:
+  software:
+    system: "Soaring"
+    company: "Soaring Software"
+    keywords: "后台bootstrap框架"
+    title: "登录"
+    description: "基于Bootstrap3最新版本开发的扁平化主题"
+    copyright: "毕升飞翔"
+    version: "0.1"
+  e:
+    base:
+      error: "发生异常，请重新尝试或联系系统管理员"
+      must_log_in: "请先登录再访问系统"
+      must_be_authorized: "您没有权限访问此功能，请联系管理员"
+      try_to_access: "有人尝试访问不可访问的功能，用户%{user}"
+      log_in: "帐号或密码错误，请重新输入"
+      status_changed: "状态已经变更，不可以重复提交"
+      auto_save_fail: "自动保存失败于%{time}，请手工保存以获得更多信息"
+      session_expiry: "您已超过%{min}分钟没有使用本系统，为了保证您的使用安全，请重新登录"
+      solr: "SOLR索引保存失败"
+  simple_captcha:
+    message:
+      default: "验证码不正确"
+      user: "验证码不正确"
+    label: "验证码"
+    placeholder: "验证码（不区分大小写）"
+  will_paginate:
+    previous_label: "&#8592; 上一页"
+    next_label: "下一页 &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero:  "未找到记录"
+        one:   "1条记录"
+        other: "共%{count}条记录"
+      single_page_html:
+        zero:  "未找到记录"
+        one:   "1条记录"
+        other: "共%{count}条记录"
+      multi_page: "%{from} - %{to}条记录，共%{count}条记录"
+      multi_page_html: "%{from}&nbsp;-&nbsp;%{to}条记录，共%{count}条记录"
+
+  activerecord:
+      errors:
+        template:
+          body: "请修正以下问题"
+          header:
+            one: "保存时发生了一个问题"
+            other: "保存时发生了一些问题"
+        messages:
+          inclusion: "不在允许的范围内"
+          exclusion: "不在允许的范围内"
+          invalid: "是非法的"
+          confirmation: "与需要确认的值不一致，请重新输入"
+          accepted: "必须被选中"
+          empty: "不可为空"
+          blank: "不可为空"
+          too_long: "值过长，不可超过%{count}个字"
+          too_short: "值过短，不可少于%{count}个字"
+          wrong_length: "长度不正确，应该为%{count}个字"
+          taken: "值重复，请重新输入"
+          not_a_number: "不是数字"
+          greater_than: "必须大于%{count}"
+          greater_than_or_equal_to: "必须大于等于%{count}"
+          equal_to: "必须等于%{count}"
+          less_than: "必须小于%{count}"
+          less_than_or_equal_to: "必须小于等于%{count}"
+          odd: "必须是偶数"
+          even: "必须是奇数"
+          record_invalid: "记录非法"
+          not_an_integer: "必须是整数"
+          has_one: "必须输入一项"
+          repeat_reg: "该时间段已被登记"
+          date_limit: "必须不小于起始时间"
+          monday_limit: "不能选择周一上午"
+          same_date: "必须和开始时间为同一天"
+          org_exist: "组织名称已存在，请重新选择！"
+          file_blank: "请选择导入的文件"
+      models:
+        fdn/user: "用户"
+        fdn/role: "角色"
+        fdn/right: "功能"
+        fdn/organization: "组织"
+        fdn/user_information: "用户信息"
+        fdn/region: "地区"
+        fdn/enterprise: "企业"
+        fdn/menu: "功能菜单"
+        fdn/profile: "参数"
+        fdn/lookup: "值列表"
+        fdn/user_session: "登录"
+        fdn/template: "模版"
+        fdn/user_group: "用户组"
+        fdn/event: "提醒事项"
+        hr/el_manager: "企业领导人基本信息"
+        hr/el_appointment: "企业领导人任免信息"
+        hr/hire: "人员录用"
+        hr/retirement: "企业离退休人员"
+        hr/train: "培训管理"
+        hr/person: "人员信息"
+        hr/w_experien: "工作简历信息"
+        hr/degree: "学历信息"
+        hr/reward: "奖励信息"
+        hr/punish: "惩戒信息"
+        hr/education: "教育培训信息"
+        hr/assess: "考核信息"
+        hr/title: "衔称信息"
+        hr/demobilized: "军队转业干部信息"
+        hr/party_org: "党组织信息"
+        hr/mission_act: "团日活动"
+        hr/holiday: "请假管理"
+        hr/que_report: "季报"
+        hr/weekly: "周报"
+        aae/financial_statement: "财务报表"
+      attributes:
+        fdn/user:
+          username: "帐号"
+          password: "密码"
+          password_confirmation: "密码确认"
+        fdn/user_session:
+          username: "用户名"
+          password: "密码"
+        fdn/menu:
+          name: "名称"
+          code: "编码"
+          parent_id: "上级菜单"
+          title_img: "图标地址"
+          controller: "控制器"
+          action: "动作"
+          params: "参数"
+          route_path: "链接地址"
+          position: "排序号"

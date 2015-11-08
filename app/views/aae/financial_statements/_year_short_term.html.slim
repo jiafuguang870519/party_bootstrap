@@ -1,0 +1,12 @@
+= table([{w: 3, l: '指标名称'}, {w: 2, t: '指标值'}, {w: 2, t: '去年同期'}, {w: 2, t: '变动比率'}],\
+           show_seq: false,\
+           caption: @year.to_s+'年财务年报分析指标') do
+    =table_tr({l: bs_link_window(url_for(:controller => "aae/financial_statements", :action=>:short_term_debt_paying, :year=>@year, :month=>12,:ent_id=>@ent_id),'短期偿债能力')})
+    =table_tr({l: '&nbsp;&nbsp;&nbsp;流动比率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"大于1.5属于较好水平"</small></div>'.html_safe},\
+              {c: @indicator.nil?? "": @indicator.indicator_attr1.nil? ? "" : format("%.2f",@indicator.indicator_attr1),:class=>(@indicator.check_attr1 if !@indicator.nil?),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr1.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr1),:class=>(@indicator_last_year.check_attr1 if !@indicator_last_year.nil?)},\
+              {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr1")})
+    =table_tr({l: '&nbsp;&nbsp;&nbsp;速动比率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"一般不小于1，我国的评价为0.8"</small></div>'.html_safe},\
+              {c: @indicator.nil?? "": @indicator.indicator_attr2.nil? ? "" : format("%.2f",@indicator.indicator_attr2),:class=>(@indicator.check_attr2 if !@indicator.nil?),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr2.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr2),:class=>(@indicator_last_year.check_attr2 if !@indicator_last_year.nil?)},\
+              {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr2")})

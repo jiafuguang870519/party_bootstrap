@@ -1,0 +1,40 @@
+<%= javascript_include_tag 'ckeditor/init' %>
+<div class="ibox-content">
+  <%= f.row("1:1") do %>
+      <%= f.control('text', req('公文字：'), :doc_word_code ,:class=>"required") %>
+      <%= f.control('text', "公文年号：", :year ,:class=>"required") %>
+  <% end %>
+  <%= f.row("1:1") do %>
+    <%= f.control('select', "文件密级：", :secret_level_code, Oa::Lookups::SecretLevel.select_y,{:prompt=>'请选择'} ,:class=>"required") %>
+    <%= f.control('select', "文件缓急：", :doc_urgency_code, Oa::Lookups::DocUrgency.select_y,{:prompt=>'请选择'} ,:class=>"required") %>
+  <% end %>
+  <%= f.row("1:1") do %>
+      <%= f.control('select', "文件类型：", :doc_type_code ,Oa::Lookups::DocType.select_y,{:prompt=>'请选择'} ,:class=>"required") %>
+      <%= f.control('text', "份数：", :print_count ,:class=>"required") %>
+    <% end %>
+  <%= f.row("1") do %>
+        <%= f.control('text', "主送部门：", :pri_sent_org_name ,:class=>"required") %>
+    <% end %>
+  <%= f.row("1") do %>
+        <%= f.control('text', "抄送部门：", :cc_sent_org_name ) %>
+    <% end %>
+  <%= f.row("1") do %>
+        <%= f.control('text', "抄报单位：", :ccr_sent_org_name) %>
+    <% end %>
+  <%= f.row("1") do %>
+      <%= f.control('text', "主题：", :title ,:class=>"required") %>
+  <% end %>
+  <%= f.row("1") do %>
+      <%= f.control('cktext_area', "正文：", :content ,:class=>"required") %>
+  <% end %>
+  <%= f.row("1") do %>
+        <%= f.control('text', "备注：", :memo) %>
+    <% end %>
+  <%= table([{w: 6, l: '文件上传'}, {w: 4, t: '操作'}],
+            id: 'file', caption: '文件', obj: f.object.file_resources,
+            parent_obj: f.object, show_seq: false,
+            index_name: 'file', \
+            new_row: add_file_oa_sent_documents_path(id: f.object.id)) do |obj, index| %>
+      <%= render 'file', :the_file => obj, :index => index, oa_sent_document: f.object %>
+  <% end %>
+</div>

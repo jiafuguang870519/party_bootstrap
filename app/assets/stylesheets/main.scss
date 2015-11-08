@@ -1,0 +1,18 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// 大标题不带控件
+caption {
+  background: #f8f8f8;
+  font-weight: bold;
+  text-align: center;
+  line-height: 20px;
+
+  // 大标题中的文字部分
+  div.caption-bar {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    color: #3A87AD;
+  }
+}

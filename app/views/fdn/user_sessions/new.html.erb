@@ -1,0 +1,41 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div>
+      <h1 class="logo-name"></h1>
+    </div>
+    <h3>欢迎使用国资监管系统新平台 <%#=t('software.system')%></h3>
+
+    <%= form_for @user_session, class:'m-t', role:'form' do |f| %>
+      <div class="form-group">
+        <%= f.text_field :org_code, :class => "form-control", :placeholder=>"机构代码", :required=>"" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :username, :class => "form-control", :placeholder=>"用户名", :required=>"" %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, :class => "form-control", :placeholder=>"密码", :required=>"" %>
+      </div>
+      <div class="form-group">
+        <%= show_simple_captcha(:input_html =>{:class => 'form-control', 'aria-describedby' => 'basic-addon2'}) %>
+      </div>
+      <%unless flash[:notice].nil?%>
+      <div class="form-group">
+        <%= flash[:notice] %>
+      </div>
+      <%end%>
+      <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
+
+
+      <p class="text-muted text-center"> <a href="login.html#"><small>忘记密码了？</small></a>
+      </p>
+    <%end%>
+  </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($.browser.msie && $.browser.version == '6.0') {
+            alert('系统检查到您的浏览器是IE6.0，请使用IE7.0以上版本或火狐，谷歌浏览器。')
+        }
+    });
+</script>
+

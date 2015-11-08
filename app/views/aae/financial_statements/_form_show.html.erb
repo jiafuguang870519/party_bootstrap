@@ -1,0 +1,14 @@
+<%== form_show(aae_financial_statement) do |s| %>
+    <%= s.row("1") do %>
+        <%= s.show_content '公司名称' do %>
+            <%= current_org.name %>
+        <% end %>
+    <% end %>
+    <%= s.row("1") do %>
+        <%= s.show_method('报表年份', :year) %>
+    <% end %>
+    <%= s.row("1") do %>
+        <%= s.show_method('报表月份', :month) %>
+    <% end %>
+<% end %>
+

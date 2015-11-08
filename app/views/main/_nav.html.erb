@@ -1,0 +1,26 @@
+<%menu = Fdn::Menu.where(:code => menu_code).first%>
+<div class="row wrapper white-bg page-heading">
+  <div class="col-lg-12">
+    <h2><%=menu.name%></h2>
+  </div>
+</div>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-6">
+    <ol class="breadcrumb">
+      <li>
+        <a href="/main/index">主页</a>
+      </li>
+      <%menu.ancestors.reject{|me| me.code == 'root'}.each do |parent|%>
+      <li>
+        <a><%=parent.name%></a>
+      </li>
+      <%end%>
+      <li>
+        <strong><%=menu.name%></strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-6 text-right">
+    <%= bs_button_window(url_for(:controller => menu.controller, :action => :new), '创建', 'btn-primary btn-sm', 'fa fa-check',)%>
+  </div>
+</div>

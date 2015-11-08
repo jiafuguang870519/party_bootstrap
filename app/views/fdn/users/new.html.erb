@@ -1,0 +1,4 @@
+<%= form_for(@fdn_user,nav:{}) do |f| %>
+    <%= hidden_field_tag :org_id, params[:org_id] %>
+    <%= render :partial => 'form', :locals => {:fdn_user => @fdn_user, :f => f} %>
+<% end %>

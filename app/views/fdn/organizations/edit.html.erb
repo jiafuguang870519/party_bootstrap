@@ -1,0 +1,6 @@
+<%= javascript_include_tag rjs_all_of_fdn_organizations_path(columns:['id','name']) %>
+<%= form_for(@obj, :url=>{:controller => 'fdn/organizations',:action=>:update, :id => @obj.id},:html => {:multipart => true},
+             nav: {}) do |f| %>
+    <%= hidden_field_tag :type, @type %>
+    <%= render 'form'  ,obj: @obj, organization: @fdn_organization, f: f%>
+<% end %>

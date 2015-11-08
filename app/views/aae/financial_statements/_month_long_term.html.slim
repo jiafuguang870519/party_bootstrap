@@ -1,0 +1,40 @@
+= table([{w: 3, l: '指标名称'}, {w: 2, t: '指标值'}, {w: 2, t: '去年同期'}, {w: 2, t: '变动比率'}, {w: 2, t: '上月指标'}, {w: 2, t: '变动比率'}],\
+               show_seq: false,\
+               caption: @year.to_s+'年'+@month.to_s+'月财务分析指标') do
+    =table_tr({l:bs_link_window(url_for(:controller => "aae/financial_statements", :action=>:long_term_debt_paying, :year=>@year, :month=>@month, :ent_id=>@ent_id),'长期偿债能力')})
+    =table_tr({l: '&nbsp;&nbsp;&nbsp;资产负债率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"低于50%为较低，说明资金质量偏低"</small></div>'.html_safe},\
+              {c: @indicator.nil?? "": @indicator.indicator_attr3.nil? ? "" : format("%.2f",@indicator.indicator_attr3),:class=>(@indicator.check_attr3 if !@indicator.nil?),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr3.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr3),:class=>(@indicator_last_year.check_attr3 if !@indicator_last_year.nil?)},\
+              {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr3"),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_month.nil?? "": @indicator_last_month.indicator_attr3.nil? ? "" : format("%.2f",@indicator_last_month.indicator_attr3),:class=>(@indicator_last_month.check_attr3 if !@indicator_last_month.nil?)},\
+              {c: @indicator.nil?? '0%' : @indicator.month_compare(@indicator_last_month,"indicator_attr3")})
+    =table_tr({l: '&nbsp;&nbsp;&nbsp;权益比率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"与资产负债率之和为1，结果越大，偿还能力越高"</small></div>'.html_safe},\
+              {c: @indicator.nil?? "": @indicator.indicator_attr4.nil? ? "" : format("%.2f",@indicator.indicator_attr4),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr4.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr4)},\
+              {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr4"),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_month.nil?? "": @indicator_last_month.indicator_attr4.nil? ? "" : format("%.2f",@indicator_last_month.indicator_attr4)},\
+              {c: @indicator.nil?? '0%' : @indicator.month_compare(@indicator_last_month,"indicator_attr4")})
+    =table_tr({l: '&nbsp;&nbsp;&nbsp;权益乘数<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"是权益乘数的倒数，比率越大，偿还能力越低"</small></div>'.html_safe.html_safe},\
+              {c: @indicator.nil?? "": @indicator.indicator_attr5.nil? ? "" : format("%.2f",@indicator.indicator_attr5),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr5.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr5)},\
+              {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr5"),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_month.nil?? "": @indicator_last_month.indicator_attr5.nil? ? "" : format("%.2f",@indicator_last_month.indicator_attr5)},\
+              {c: @indicator.nil?? '0%' : @indicator.month_compare(@indicator_last_month,"indicator_attr5")})
+    =table_tr({l: '&nbsp;&nbsp;&nbsp;产权比率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"比率越低，偿还能力越高"</small></div>'.html_safe.html_safe},\
+              {c: @indicator.nil?? "": @indicator.indicator_attr6.nil? ? "" : format("%.2f",@indicator.indicator_attr6),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr6.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr6)},\
+              {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr6"),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_month.nil?? "": @indicator_last_month.indicator_attr6.nil? ? "" : format("%.2f",@indicator_last_month.indicator_attr6)},\
+              {c: @indicator.nil?? '0%' : @indicator.month_compare(@indicator_last_month,"indicator_attr6")})
+    =table_tr({l: '&nbsp;&nbsp;&nbsp;有形净值负债率<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"比率越低，偿还能力越高"</small></div>'.html_safe},\
+              {c: @indicator.nil?? "": @indicator.indicator_attr7.nil? ? "" : format("%.2f",@indicator.indicator_attr7),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr7.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr7)},\
+              {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr7"),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_month.nil?? "":@indicator_last_month.indicator_attr7.nil? ? "" : format("%.2f",@indicator_last_month.indicator_attr7)},\
+              {c: @indicator.nil?? '0%' : @indicator.month_compare(@indicator_last_month,"indicator_attr7")})
+    =table_tr({l: '&nbsp;&nbsp;&nbsp;利息保障倍数<div><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"至少大于1"</small></div>'.html_safe},\
+              {c: @indicator.nil?? "": @indicator.indicator_attr9.nil? ? "" : format("%.2f",@indicator.indicator_attr9),:class=>(@indicator.check_attr9 if !@indicator.nil?),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_year.nil?? "": @indicator_last_year.indicator_attr9.nil? ? "" : format("%.2f",@indicator_last_year.indicator_attr9),:class=>(@indicator_last_year.check_attr9 if !@indicator_last_year.nil?)},\
+              {c: @indicator.nil?? '0%' : @indicator.year_compare(@indicator_last_year,"indicator_attr9"),style: 'border-right-color:  red; border-right-width: 1px; border-right-style: solid;'},\
+              {c: @indicator_last_month.nil?? "": @indicator_last_month.indicator_attr9.nil? ? "" : format("%.2f",@indicator_last_month.indicator_attr9),:class=>(@indicator_last_month.check_attr9 if !@indicator_last_month.nil?)},\
+              {c: @indicator.nil?? '0%' : @indicator.month_compare(@indicator_last_month,"indicator_attr9")})

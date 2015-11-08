@@ -1,0 +1,14 @@
+<div class="ibox-content">
+    <%= table([{w: 2, t: '主题'},{w: 2, t: '公文字号'},{w: 2, t: '公文类型'},{w: 2, t: '发起人'},{w: 2, t: '操作'}],
+                obj: docs,
+                fixed: true,
+                pagi_param_name: 'page') do |doc| %>
+          <%= table_tr({c: seq(docs, doc, params[:page]||1)},
+                       {l: doc.title},
+                       {c: doc.doc_word_code},
+                       {c: doc.doc_type_code},
+                       {c: doc.created_by},
+                       {c: bs_link_window(oa_sent_document_path(doc), '查看', '', '',) +"|"+
+                           bs_link_window(edit_oa_sent_document_path(doc), '编辑', '', '',)}) %>
+    <% end %>
+</div>

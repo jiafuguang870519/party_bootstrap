@@ -1,0 +1,26 @@
+<%= button_div() do %>
+    <%= bs_close %>
+<% end %>
+<div class="ibox-content">
+  <%= form_show @fdn_org_hierarchy do |d| %>
+      <%= d.row("1") do %>
+          <%= d.show_method "名称：", :name %>
+      <% end %>
+      <%= d.row("1") do %>
+          <%= d.show_method "简称：", :short_name %>
+      <% end %>
+      <%= d.row("1") do %>
+          <%= d.show_method "编码：", :code %>
+      <% end %>
+      <%= d.row("1") do %>
+          <%= d.show_content "根组织：" do %>
+              <%= @fdn_org_hierarchy.org.name %>
+          <% end %>
+      <% end %>
+      <%= d.row("1") do %>
+          <%= d.show_content "图标：" do %>
+              <span class="badge <%= @fdn_org_hierarchy.icon  %>"><%= @fdn_org_hierarchy.short_name %></span>
+          <% end %>
+      <% end %>
+  <% end %>
+</div>

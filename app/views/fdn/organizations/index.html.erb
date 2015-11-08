@@ -1,0 +1,66 @@
+<%#= render :partial => 'main/nav', :locals => {:menu_code => 'fdn_organizations'} %>
+<%menu = Fdn::Menu.where(:code => 'fdn_organizations_tree_history').first%>
+<%= nav_bar(menu) do %>
+    <%#= bs_button_window(new_fdn_organization_path(type:'ENT'), '创建企业', 'btn-primary btn-sm', 'fa fa-check',)%>
+<% end %>
+<div class="wrapper wrapper-content">
+    <div class="ibox-content">
+        <%= tabs(@tab_idx) do |t| %>
+            <%= @hierarchies.each do |hie| %>
+                <%= t.tab(hie.name) do %>
+                    <% @tree_list = Fdn::OrgTreeChange.where(hierarchy_id: hie.id).order("change_time DESC") %>
+                    <% if !@tree_list.blank? %>
+                        <% @tree_list.each do |tl| %>
+                            <%#= time_line(tl.change_time.to_date.to_s, tree_index_fdn_organizations_path(eff_time: tl.change_time, hierarchy_id: hie.id), tl.change_time.to_s) %>
+                            <%= time_line(tl.change_time.to_date.to_s) do %>
+                                <p><%= bs_button_window(tree_index_fdn_organizations_path(eff_time: tl.change_time, hierarchy_id: hie.id), hie.name + '树型视图', '', 'fa fa-list-ol') %></p>
+                                <p class="m-b-xs"><strong>时间：<%= tl.change_time %></strong></p>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+<!--<div class="panel blank-panel">-->
+  <!--<div class="panel-heading">-->
+    <!--<div class="panel-options">-->
+      <!--<%= tabs(0) do |t| %>-->
+          <!--<%= @hierarchies.each do |hie| %>-->
+              <!--<%= t.tab(hie.name) do %>-->
+                  <!--<% @tree_list = Fdn::OrgTreeChange.where(hierarchy_id: hie.id).order("change_time DESC") %>-->
+                  <!--<% if !@tree_list.blank? %>-->
+                      <!--<% @tree_list.each do |tl| %>-->
+                          <!--<div class="ibox-content timeline">-->
+                            <!--<div class="timeline-item">-->
+                              <!--<div class="row">-->
+                                <!--<div class="col-xs-3 date">-->
+                                  <!--<i class="fa fa-list"></i>-->
+                                  <!--<br>-->
+                                  <!--<small class="text-navy"><%= tl.change_time.to_date %></small>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-7 content">-->
+                                  <!--<p><%= bs_button_link_to(tree_index_fdn_organizations_path(eff_time: tl.change_time, hierarchy_id: hie.id), '查看组织树', '', 'fa fa-list-ol') %></p>-->
+
+                                  <!--<p class="m-b-xs"><strong>时间：<%= tl.change_time %></strong></p>-->
+                                  <!--<%#= table([{w: 4, t: '起始时间'}, {w: 4, t: '结束时间'}, {w: 3, t: '操作'}],-->
+                                            <!--obj: @tree_list) do |x| %>-->
+                                      <!--<%#= table_tr({c: x.id},-->
+                                                   <!--{l: 'start_time'},-->
+                                                   <!--{c: 'end_time'},-->
+                                                   <!--{c: bs_button_link_to(tree_index_fdn_organizations_path, '查看组织树', '', 'fa fa-list-ol')}) %>-->
+                                  <!--<%# end %>-->
+                                <!--</div>-->
+                              <!--</div>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                      <!--<% end %>-->
+                  <!--<% end %>-->
+              <!--<% end %>-->
+          <!--<% end %>-->
+      <!--<% end %>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->

@@ -1,0 +1,38 @@
+<% menu = Fdn::Menu.where(:code => 'year_analysis').first %>
+<%= nav_bar(menu) do %>
+<% end %>
+<div class="wrapper wrapper-content">
+  <div class="ibox-title">
+    <%= search_form_for(@search, url: year_analysis_aae_financial_statements_path, nav_bar: true) do |f| %>
+        <%= f.control 'datepicker', '年份：', 'year_eq' %>
+    <% end %>
+  </div>
+</div>
+<%== tabs(@tab_index) do |t| %>
+    <%= t.tab('短期偿债能力') do %>
+        <%= render :partial => 'year_short_term', :locals => {:financial_statement => @aae_financial_statement} %>
+    <% end %>
+    <%= t.tab('长期偿债能力') do %>
+        <%= render :partial => 'year_long_term', :locals => {:financial_statement => @aae_financial_statement} %>
+    <% end %>
+    <%= t.tab('经营业绩考核') do %>
+        <%= render :partial => 'year_performance_evaluation', :locals => {:financial_statement => @aae_financial_statement} %>
+    <% end %>
+<% end %>
+<script>
+    $(document).ready(function () {
+        $('.date').datepicker({
+            minViewMode: 2,
+            format: 'yyyy',
+            startView: 2,
+            startDate: "2003"
+        });
+    })
+
+
+    $('.good').css("color", "#28FF28");
+    //$(".good").attr("class", "icon-ok");
+    $('.bad').css("color", "#FF0000");
+    //$(".bad").attr("class", "icon-remove");
+
+</script>

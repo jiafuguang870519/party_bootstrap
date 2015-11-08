@@ -1,0 +1,6 @@
+<%= base_fields_for oa_sent_document do |f| %>
+    <%= f.fields_for :file_resources, the_file, child_index: index do |file_form| %>
+        <%= control_table_tr({l: (the_file.ffx_file_name == nil ? file_form.file_field(:ffx) : link_to(the_file.ffx_file_name, the_file.ffx.url, :class => 'file'))},
+                             {c: remove_line_tag(file_form, url_for(:controller => 'oa/sent_documents', :action => :del_file, :id => the_file.id, :if_resource => 'yes')), style: 'vertical-align: middle'}) %>
+    <% end %>
+<% end %>
